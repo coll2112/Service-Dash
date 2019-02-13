@@ -1,2 +1,2 @@
-SELECT * FROM customer
+SELECT * FROM users
 WHERE id= $1

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {loginChange} from '../../ducks/reducer'
 import axios from 'axios'
 
 class Login extends Component{
@@ -17,15 +19,17 @@ class Login extends Component{
 
     submitLogin=()=>{
         const {username, password} = this.state
+        // const {login} = this.props
         axios.post('api/login', {username, password}).then(response=>{
             this.props.history.push('/account')
+            this.props.loginChange()
         }).catch((err)=>{
             console.log(err)
         })
     }
 
     render(){
-        console.log(this.state)
+        console.log(this.props.login)
         return(
             <div>
                 <p>Username:</p>
@@ -38,4 +42,6 @@ class Login extends Component{
     }
 }
 
-export default Login;
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps, {loginChange})(Login);

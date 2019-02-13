@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getUser, logout} from '../../ducks/reducer'
+import {getUser} from '../../ducks/reducer'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 class UserAccount extends Component{
 
@@ -9,12 +10,18 @@ class UserAccount extends Component{
         this.props.getUser()
     }
 
+    addData=()=>{
+
+    }
+
     render(){
         // console.log(this.props.user)
         return this.props.user.username  ? (
             <div>
                 <p>Account</p>
-                <Link to='/login'><button onClick={()=>this.props.logout()}>Logout</button></Link>
+                <p>User Info Here</p>
+                <input></input>
+                {this.props.user.firstname}
             </div>
         ) : (
                 <div>
@@ -26,4 +33,4 @@ class UserAccount extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {getUser, logout})(UserAccount)
+export default connect(mapStateToProps, {getUser})(UserAccount)
