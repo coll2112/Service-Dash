@@ -8,17 +8,25 @@ const getCustomers = (req, res) =>{
     })
 }
 
-// const getOneCustomer = (req, res) =>{
-//     const db =  req.app.get('db')
-//     const {id} = req.body
-// }
+const getCustomer = (req, res) =>{
+    const db =  req.app.get('db')
+    const {id} = req.params
 
-const addUserInfo = async (req, res) =>{
+    db.getCustomer(id).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        res.status(500).send({error: 'Failed'})
+        console.log(err)
+    })
+}
+
+const addUserInfo = (req, res) =>{
     const db = req.app.get('db')
     const {firstname, lastname, address, city, state, zip} = req.body
-        
+    const {id} = req.params
+
     db
-    .addUserInfo([firstname, lastname, address, city, state, zip])
+    .addUserInfo([id, firstname, lastname, address, city, state, zip])
     .then(response=>{
         res.status(200).send(response)
     })
@@ -31,5 +39,6 @@ const addUserInfo = async (req, res) =>{
 
 module.exports={
     getCustomers,
+    getCustomer,
     addUserInfo
 }

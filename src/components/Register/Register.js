@@ -27,12 +27,14 @@ class Register extends Component{
     render(){
         // console.log(this.state.password)
         return(
-            <div>
-                <p>Username:</p>
-                <input type='text' name='username' onChange={this.updateInput}/>
-                <p>Password:</p>
-                <input type='password' name='password' onChange={this.updateInput}/>
-                <button onClick={()=>this.registerUser()}>Submit</button>
+            <div className='login-container'>
+                <div className='inputs'>
+                    <p>Username:</p>
+                    <input type='text' name='username' onChange={this.updateInput}/>
+                    <p>Password:</p>
+                    <input type='password' name='password' onChange={this.updateInput}/>
+                </div>
+                <button onClick={()=>this.registerUser()}>Register</button>
             </div>
         )
     }

@@ -22,7 +22,7 @@
 .links > a{
     display: block;
     padding: 15px 25px;
-    font-size: 1.1em;
+    font-size: 1.05em;
 }
 
 .links > a:focus{

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const initialState = {
     user:{},
-    userInfo:{},
+    userInfo:[],
     err: false,
     login: true
 }
@@ -26,8 +26,12 @@ export const logout=()=>{
     }
 }
 
-export const getUserInfo=()=>{
-    
+export const getUserInfo=(id)=>{
+    // console.log(id)
+    return{
+        type: GET_USER_INFO,
+        payload: axios.get(`/api/customers/${id}`)
+    }
 }
 
 export const loginChange=()=>{
@@ -62,6 +66,16 @@ export default function reducer(state=initialState, action){
         return{
             ...state,
             login: action.payload
+        }
+        case `${GET_USER_INFO}_FULFILLED`:
+        return{
+            ...state,
+            userInfo: action.payload.data
+        }
+        case `${GET_USER_INFO}_REJECTED`:
+        return{
+            ...state,
+            userInfo: action.payload.data
         }
         default:
         return state;

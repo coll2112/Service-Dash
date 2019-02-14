@@ -3,7 +3,7 @@ const express = require('express')
 const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
-const {getCustomers, addUserInfo} =  require('./controller/controller')
+const {getCustomers, addUserInfo, getCustomer} =  require('./controller/controller')
 const {login, register, logout, userSession} =  require('./controller/authcontroller')
 
 const app=express()
@@ -25,8 +25,8 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 
 
 app.get('/api/customers', getCustomers)
-app.post('/api/addinfo', addUserInfo)
-// app.get('/api/customer/:id', getOneCustomer)
+app.get('/api/customers/:id', getCustomer)
+app.put('/api/editUserInfo/:id', addUserInfo)
 
 //User login, logout, session and register
 app.get('/api/user', userSession)

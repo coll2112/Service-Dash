@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginChange} from '../../ducks/reducer'
 import axios from 'axios'
+import './Login.css'
 
 class Login extends Component{
     constructor(){
@@ -31,11 +31,13 @@ class Login extends Component{
     render(){
         console.log(this.props.login)
         return(
-            <div>
-                <p>Username:</p>
-                <input type='text' name='username' onChange={this.updateInput}/>
-                <p>Password:</p>
-                <input type='password' name='password' onChange={this.updateInput}/>
+            <div className='login-container'>
+                <div className='inputs'>
+                    <p>Username:</p>
+                    <input type='text' name='username' onChange={this.updateInput}/>
+                    <p>Password:</p>
+                    <input type='password' name='password' onChange={this.updateInput}/>
+                </div>
                 <button onClick={()=>this.submitLogin()}>Login</button>
             </div>
         )

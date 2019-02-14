@@ -20,6 +20,11 @@ class Navbar extends Component{
                     {
                         this.props.login ? 
                         null : 
+                        <Link to='/account'>Dashboard</Link>
+                    }
+                    {
+                        this.props.login ? 
+                        null : 
                         <Link to='/account'>Account</Link>
                     }
                     {
