@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
 import UserInfoList from '../UserInfoList/UserInfoList'
+import {Link} from 'react-router-dom'
+import routes from '../../routes'
 // import Dashboard from '../Dashboard/Dashboard'
 
 class UserAccount extends Component{
@@ -33,21 +35,23 @@ class UserAccount extends Component{
         e.preventDefault();
         axios.put(`/api/editUserInfo/${id}`, {firstname, lastname, address, city, state, zip}).then(()=>{
             this.props.getUserInfo(this.props.user.id)
-            e.target.reset()
         }).catch(err=>{
             console.log(err)
         })
+        e.target.reset()
     }
 
     render(){
         if(this.props.userInfo[0]){
             console.log(this.props.userInfo[0])
         }
-        
 
-        return this.props.user.username  ? (
+        console.log(this.props.user)
+        
+        return this.props.user.username && this.props.userInfo[0] ? (
             <div>
-                <p>Hello, {this.props.user.username}</p>
+                <Link to='/dashboard/application'>Service Application</Link>
+                <p>Hello, {this.props.userInfo[0].firstname}</p>
                 <p>User Info Here</p>
                 <form onSubmit={this.submitInfo} className='infoForm'>
                     <p>First Name:</p>

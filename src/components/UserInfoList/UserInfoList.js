@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getUserInfo, getUser} from '../../ducks/reducer'
+import axios from 'axios';
 
 class UserInfoList extends Component{
 
@@ -19,7 +20,7 @@ class UserInfoList extends Component{
         // }
 
         if(this.props.userInfo[0]){
-            console.log(this.props.userInfo[0])
+            // console.log(this.props.userInfo[0])
             var {firstname, lastname, address, city, state, zip} = this.props.userInfo[0]
         }
 

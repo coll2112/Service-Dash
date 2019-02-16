@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {loginChange} from '../../ducks/reducer'
+import {loginChange, getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
-import './Login.css'
+import './Login.scss'
 
 class Login extends Component{
     constructor(){
@@ -13,23 +13,32 @@ class Login extends Component{
         }
     }
 
+    async componentDidMount(){
+        await this.props.getUser()
+    }
+
     updateInput=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
 
-    submitLogin=()=>{
+   submitLogin=()=>{
         const {username, password} = this.state
         // const {login} = this.props
-        axios.post('api/login', {username, password}).then(response=>{
-            this.props.history.push('/account')
-            this.props.loginChange()
+        axios.post('api/login', {username, password}).then(()=>{
+            this.props.getUser()
+            // if(this.props.user.isAdmin === null){
+            //     this.context.history.push('/account')
+            // }else{
+            //     this.context.history.push('/portal')    
+            // }
+            this.props.history.push('/')
         }).catch((err)=>{
             console.log(err)
         })
     }
 
     render(){
-        console.log(this.props.login)
+        console.log(this.props.userInfo[0])
         return(
             <div className='login-container'>
                 <div className='inputs'>
@@ -46,4 +55,4 @@ class Login extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {loginChange})(Login);
+export default connect(mapStateToProps, {loginChange, getUser, getUserInfo})(Login);

@@ -12,9 +12,11 @@ const getCustomer = (req, res) =>{
     const db =  req.app.get('db')
     const {id} = req.params
 
-    db.getCustomer(id).then(response=>{
+    db.getCustomer(id)
+    .then(response=>{
         res.status(200).send(response)
-    }).catch(err=>{
+    })
+    .catch(err=>{
         res.status(500).send({error: 'Failed'})
         console.log(err)
     })
@@ -33,12 +35,77 @@ const addUserInfo = (req, res) =>{
     .catch(err=>{
         console.log(err)
         res.status(500).send({error:'Failed'})
+    })           
+}
+
+addEmployee=(req, res)=>{
+    const db = req.app.get('db')
+    const {employeeFirstName, employeeLastName} = req.body
+
+    db.addEmployee([employeeFirstName, employeeLastName])
+    .then(response=>{
+        res.status(200).send(response)
     })
-            
+    .catch(err=>{
+        res.status(500).send({error:'Failed'})
+        console.log(err)
+    })
+}
+
+getAllRequests = (req, res)=>{
+    const db = req.app.get('db')
+    // console.log('hit')
+    db.getAllRequests().then(response=>{
+        // console.log(response)
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: "Failed"})
+    })
+}
+
+submitApp = (req, res) =>{
+    const db = req.app.get('db')
+    const {id, comment, status} = req.body
+
+    db.submitApp([id, comment, status]).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed'})
+    })
+}
+
+getAppStatus = (req,res) =>{
+    const db = req.app.get('db')
+
+    db.getAppStatus(req.params.id).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed'})
+    })
+}
+
+deleteRequest=(req, res)=>{
+    const db = req.app.get('db')
+
+    db.deleteRequests(req.params.id).then(response=>{
+        // console.log('hit')
+        res.status(200).send('Item Deleted')
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed'})
+    })
 }
 
 module.exports={
     getCustomers,
     getCustomer,
-    addUserInfo
+    addUserInfo,
+    addEmployee,
+    getAllRequests,
+    submitApp,
+    getAppStatus,
+    deleteRequest
 }

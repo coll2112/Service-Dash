@@ -10,8 +10,8 @@ const login = (req, res) =>{
         }else{
             const isMatch =  await bcrypt.compare(req.body.password, result[0].password)
             if(isMatch){
-                req.session.user={username: result[0].username, id: result[0].id}
-                res.json({username: result[0].username})
+                req.session.user={username: result[0].username, id: result[0].id, isAdmin: result[0].admin}
+                res.json(req.session.user)
             }else{
                 res.status(401).json({error: 'Incorrect Password'})
             }

@@ -1,36 +1,41 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {getUser, logout, loginChange} from '../../ducks/reducer'
-import './Navbar.css'
+import {getUser, getUserInfo, logout} from '../../ducks/reducer'
+import './Navbar.scss'
 
 
 class Navbar extends Component{
-    // componentDidMount(){
-    //     this.props.getUser()
-    // }
+
+    async componentDidMount(){
+        this.props.getUser();
+        this.props.getUserInfo(this.props.user.id);
+    }
 
     render(){
-        // console.log(this.props.login)
+        console.log(this.props.user)
         return(
             <div className='navbar'>
                 <Link to='/'><h1>Push.Co</h1></Link>
                 <div className='links'>
                     <Link to='/'><li>Home</li></Link>
                     {
-                        this.props.login ? 
-                        null : 
-                        <Link to='/account'>Dashboard</Link>
+                        this.props.user.isAdmin == 'true' ? 
+                        <Link to='/portal'>Admin Portal</Link> : 
+                        null
                     }
                     {
-                        this.props.login ? 
+                        !this.props.user.id ? 
                         null : 
-                        <Link to='/account'>Account</Link>
+                            this.props.user.isAdmin === null ? 
+                            <Link to='/account'>Account</Link> :
+                            null
                     }
                     {
-                        this.props.login ? 
-                        <Link to='/login'><li>Login</li></Link> : 
-                        <Link to='/' onClick={()=>this.props.loginChange()}>Log Out</Link>
+                        this.props.user.id ? 
+                        <Link to='/' onClick={()=>this.props.logout()}>Logout</Link> :
+                        <Link to='/login'><li>Login</li></Link>
+                        
                     }
                 </div>
             </div>
@@ -40,4 +45,4 @@ class Navbar extends Component{
 
 const mapStateToProps=state=>state
 
-export default connect(mapStateToProps, {loginChange})(Navbar);
+export default connect(mapStateToProps, {getUser, logout, getUserInfo})(Navbar);
