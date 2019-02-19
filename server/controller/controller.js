@@ -99,6 +99,19 @@ deleteRequest=(req, res)=>{
     })
 }
 
+statusRequest = (req, res) => {
+    const db = req.app.get('db')
+    const {id} = req.params
+    const {status} = req.body
+
+    db.updateRequest([id, status]).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed to post'})
+    })
+}
+
 module.exports={
     getCustomers,
     getCustomer,
@@ -107,5 +120,6 @@ module.exports={
     getAllRequests,
     submitApp,
     getAppStatus,
-    deleteRequest
+    deleteRequest,
+    statusRequest
 }

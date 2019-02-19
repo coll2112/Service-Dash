@@ -36,7 +36,7 @@ class UserApplication extends Component{
         const {comment} = this.state
         const {id} = this.props.user
         e.preventDefault();
-        axios.post('/api/submitApplication', {id, comment, status:'pending'}).then(response=>{
+        axios.post('/api/submitApplication', {id, comment, status:'Pending'}).then(response=>{
             this.props.getUserInfo(id);
             this.props.getUser();
         }).catch(err=>{

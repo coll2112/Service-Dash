@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Landing from './components/Landing/Landing'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import routes from './routes'
 import Navbar from './components/Navbar/Navbar'
 

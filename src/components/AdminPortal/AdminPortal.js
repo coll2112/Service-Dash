@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getUser} from '../../ducks/reducer'
+import {getUser, getRequests} from '../../ducks/reducer'
 import axios from 'axios';
 import routes from '../../routes'
 
@@ -16,6 +16,7 @@ class AdminPortal extends Component{
 
     async componentDidMount(){
         await this.props.getUser()
+        this.props.getRequests()
     }
 
     toggleAddEmployee=()=>{
@@ -39,6 +40,19 @@ class AdminPortal extends Component{
 
     render(){
         console.log(this.state.user)
+
+        // const pendingRequests = this.props.serviceRequests.filter((e)=>{
+        //     return e.status === 'Pending'
+        // })
+        
+        // const deniedRequests = this.props.serviceRequests.filter((e)=>{
+        //     return e.status === 'Denied'
+        // })
+        
+        // const acceptedRequests = this.props.serviceRequests.filter((e)=>{
+        //     return e.status === 'Approved'
+        // })
+
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
             <div>
                 <button onClick={()=>this.toggleAddEmployee()}>Add Employee</button>
@@ -53,6 +67,15 @@ class AdminPortal extends Component{
                     </div> : null
                 }
                 <button onClick={()=>this.props.history.push('/portal/requests')}>Check Service Requests</button>
+                {/* {deniedRequests.map((e,i)=>{
+                    return(
+                        <div key={i}>
+                            <p>{e.firstname}</p>
+                            <p>{e.comment}</p>
+                            <p>{e.status}</p>
+                        </div>
+                    )
+                })} */}
             </div>
         ) : (
             <div>Admins Only</div>
@@ -62,4 +85,4 @@ class AdminPortal extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {getUser})(AdminPortal);
+export default connect(mapStateToProps, {getUser, getRequests})(AdminPortal);

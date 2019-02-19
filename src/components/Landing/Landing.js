@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import Navbar from '../Navbar/Navbar'
 import {Link} from 'react-router-dom'
-import './Landing.scss'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
+import './Landing.scss'
 
 class Landing extends Component{
 
@@ -15,7 +14,6 @@ class Landing extends Component{
     render(){
         return(
             <div className='container'>
-                {/* <Navbar/> */}
                 <div className='landing-flex'>
                     <h2>PushCo</h2>
                     <h3>Pushing for Perfection</h3>

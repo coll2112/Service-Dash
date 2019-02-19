@@ -30,7 +30,7 @@ const register = async (req, res)=>{
             admin: req.body.admin
         })
         req.session.user={username: response[0].username, id: response[0].id}
-        res.json({username: response[0].username})
+        res.json(req.session.user)
     }catch(err){
         console.log(err)
         res.status(401).json('There is an error')

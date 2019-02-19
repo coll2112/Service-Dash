@@ -1,0 +1,75 @@
+@import '../../variables.scss';
+
+.spinner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.requestList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 50vw;
+    margin: auto;
+
+    // .requestHeader{
+    //     height: 10vh;
+    //     width: 100%;
+    //     margin-top: 50px;
+    //     background: $secondaryColor;
+    // }
+
+    .requestMap{
+        padding: 35px 15px;
+        border-top: 2px solid $secondaryColor;
+        border-bottom: 2px solid $secondaryColor;
+        margin: 25px 0;
+
+        p{
+            border: 1px solid $secondaryColor;
+            padding: 15px 20px;
+        }
+
+        .appStatus{
+            text-align: center;
+        }
+
+        h2{
+            font-size: 2em;
+
+            &::after{
+                content: '';
+                border-right: 2px solid $accentColor;
+                border-bottom: 2px solid $accentColor;
+                padding: 5px 50px;
+                margin-left: -90px;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+
+.requestBtns{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+
+    button{
+        border: none;
+        background: $accentColor;
+        padding: 15px 50px;
+        font-size: 1em;
+        color: $primaryColor;
+        transition: background-color .2s linear;
+        // border-radius: 5px;
+        font-weight: 600;
+
+        &:hover{
+            background-color: $secondaryColor;
+        }
+    }
+}

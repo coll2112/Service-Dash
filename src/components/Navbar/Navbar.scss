@@ -7,13 +7,14 @@
     justify-content: space-around;
     align-items: center;
     color: $primaryColor;
-    opacity: 0.9;
+    // opacity: 0.9;
     position: sticky;
     top:0;
+    z-index: 1;
         
         a{
             color: $primaryColor;
-            text-decoration:none;
+            text-decoration: none;
         }
 }
 
@@ -23,19 +24,33 @@
     justify-content: space-between;
 
         a{
-            display: block;
-            padding: 15px 25px;
+            margin: 5px 15px;
             font-size: 1.05em;
 
-            &:focus{
-                color: $highlightColor;
+            // &:focus{
+            //     color: $highlightColor;
+            // }
+
+            &::before{
+                content: "";
+                display: block;
+                width: 0;
+                height: 5px;
+                margin-top: 2px;
+                background: $accentColor;
+                transition: width .3s;
+            }
+
+            &:hover::before{
+                width: 100%;
+                transition: width .3s;
             }
 
             &::after{
                 content: "";
                 display: block;
                 width: 0;
-                height: 3px;
+                height: 2px;
                 margin-top: 2px;
                 background: $accentColor;
                 transition: width .3s;
@@ -46,4 +61,5 @@
                 transition: width .3s;
             }
         }
+
 }

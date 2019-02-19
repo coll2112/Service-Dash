@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo, logout} from '../../ducks/reducer'
 import './Navbar.scss'
@@ -8,33 +8,33 @@ import './Navbar.scss'
 class Navbar extends Component{
 
     async componentDidMount(){
-        this.props.getUser();
+        await this.props.getUser();
         this.props.getUserInfo(this.props.user.id);
     }
 
     render(){
-        console.log(this.props.user)
+        // console.log(this.props.user)
         return(
             <div className='navbar'>
                 <Link to='/'><h1>Push.Co</h1></Link>
                 <div className='links'>
-                    <Link to='/'><li>Home</li></Link>
+                    <NavLink to='/' activeClassName='active' exact><li>Home</li></NavLink>
                     {
                         this.props.user.isAdmin == 'true' ? 
-                        <Link to='/portal'>Admin Portal</Link> : 
+                        <NavLink to='/portal' activeClassName='active' exact><li>Admin Portal</li></NavLink> : 
                         null
                     }
                     {
                         !this.props.user.id ? 
                         null : 
                             this.props.user.isAdmin === null ? 
-                            <Link to='/account'>Account</Link> :
+                            <NavLink to='/dashboard' activeClassName='active' exact>Dashboard</NavLink> :
                             null
                     }
                     {
                         this.props.user.id ? 
-                        <Link to='/' onClick={()=>this.props.logout()}>Logout</Link> :
-                        <Link to='/login'><li>Login</li></Link>
+                        <NavLink to='/' activeClassName='active' exact onClick={()=>this.props.logout()}><li>Logout</li></NavLink> :
+                        <NavLink to='/login' activeClassName='active' exact><li>Login</li></NavLink>
                         
                     }
                 </div>

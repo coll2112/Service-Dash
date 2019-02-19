@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {getUserInfo} from '../../ducks/reducer'
+import {getUser, getUserInfo} from '../../ducks/reducer'
+import {Link, NavLink} from 'react-router-dom'
 
 class Dashboard extends Component{
     componentDidMount(){
-        
+        this.props.getUser();
     }
 
     render(){
-        return(
+        return this.props.user.username ? (
             <div>
-                
+                <NavLink to='/dashboard/account'>Account Information</NavLink>
+                <p>Welcome {this.props.user.username}</p>
+            </div>
+        ) : (
+            <div>
+                <h2>Please Sign In</h2>
             </div>
         )
     }
@@ -18,4 +24,4 @@ class Dashboard extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {getUserInfo})(Dashboard)
+export default connect(mapStateToProps, {getUser, getUserInfo})(Dashboard)

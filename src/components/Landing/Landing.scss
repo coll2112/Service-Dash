@@ -1,9 +1,8 @@
 @import '../../variables.scss';
 
 .container{
-    height: 80vh;
     color: $primaryColor;
-    
+
     &::after{
         background-attachment: fixed;
         background-image: url('../../images/business_bg.jpg');
@@ -22,8 +21,11 @@
 }
 
 .landing-flex{
-    text-align: center;
-    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 
     h2{
         font-size: 7em;
@@ -46,29 +48,27 @@
         font-size: 1.7em;
         font-weight: 300;
         text-shadow: 2px 1px 3px $shadowColor;
-        margin-bottom: -20px;
-        animation: usernameIntro .5s linear;
+        animation: usernameIntro .8s linear;
         animation-fill-mode: forwards;
-        opacity: 0;
-        filter: blur(5px);
+        position: relative;
     }
 } 
 
 .button{
     border: none;
     padding: 15px 55px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.3em;
-    box-shadow: 2px 1px 3px #242424;
-    background: #F1FFFA;
-    transition: background-color .2s linear, transform .3s linear;
+    margin-top: 40px;
+    background: $primaryColor;
+    transition: background-color .2s linear, transform .15s linear;
     animation: showcaseIntro .6s linear .8s;
     animation-fill-mode: forwards;
     opacity: 0;
 
     &:hover{
         background-color: #d3e0dc;
-        transform: scale(1.04);
+        transform: scale(1.05);
     }
 }
 
@@ -88,6 +88,6 @@
 }
 
 @keyframes usernameIntro{
-    from{opacity: 0; filter:blur(5px);}
-    to{opacity: 1; filter:blur(0px);}
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

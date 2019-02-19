@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import {connect} from 'react-redux'
-import {loginChange, getUser} from '../../ducks/reducer'
+import {loginChange, getUser, getUserInfo} from '../../ducks/reducer'
 import './Register.scss'
 
 class Register extends Component{
@@ -14,8 +14,9 @@ class Register extends Component{
         }
     }
 
-    componentDidMount(){
-        this.props.getUser()
+    async componentDidMount(){
+        await this.props.getUser()
+        this.props.getUserInfo()
     }
 
     updateInput=(e)=>{
@@ -25,9 +26,9 @@ class Register extends Component{
     registerUser=()=>{
         const {username, password} =  this.state
         axios.post('/api/register', {username, password}).then(response=>{
-            this.props.history.push('/')
-            this.props.loginChange();
             this.props.getUser()
+            this.props.history.push('/')
+            // this.props.loginChange();
         }).catch((err)=>{
             console.log(err)
         })
@@ -51,4 +52,4 @@ class Register extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {loginChange, getUser})(Register);
+export default connect(mapStateToProps, {loginChange, getUser, getUserInfo})(Register);

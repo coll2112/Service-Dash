@@ -4,7 +4,7 @@ import {getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
 import UserInfoList from '../UserInfoList/UserInfoList'
 import {Link} from 'react-router-dom'
-import routes from '../../routes'
+import Loader from 'react-loader-spinner'
 // import Dashboard from '../Dashboard/Dashboard'
 
 class UserAccount extends Component{
@@ -49,29 +49,27 @@ class UserAccount extends Component{
         console.log(this.props.user)
         
         return this.props.user.username && this.props.userInfo[0] ? (
-            <div>
+             <div>
                 <Link to='/dashboard/application'>Service Application</Link>
                 <p>Hello, {this.props.userInfo[0].firstname}</p>
                 <p>User Info Here</p>
                 <form onSubmit={this.submitInfo} className='infoForm'>
                     <p>First Name:</p>
-                    <input type='text' name='firstname' onChange={this.updateInput}/>
+                    <input type='text' name='firstname' required onChange={this.updateInput}/>
                     <p>Last Name:</p>
-                    <input type='text' name='lastname' onChange={this.updateInput}/>
+                    <input type='text' name='lastname' required onChange={this.updateInput}/>
                     <p>Address:</p>
-                    <input type='text' name='address' onChange={this.updateInput}/>
+                    <input type='text' name='address' required onChange={this.updateInput}/>
                     <p>City:</p>
-                    <input type='text' name='city' onChange={this.updateInput}/>
+                    <input type='text' name='city' required onChange={this.updateInput}/>
                     <p>State:</p>
-                    <input type='text' name='state' onChange={this.updateInput}/>
+                    <input type='text' name='state' required onChange={this.updateInput}/>
                     <p>ZipCode:</p>
-                    <input type='number' name='zip' onChange={this.updateInput}/>
+                    <input type='number' name='zip' required onChange={this.updateInput}/>
                     <button>Submit</button>
                 </form>
                 <UserInfoList/>
-                {/* <button onClick={()=>this.submitInfo()}>Submit</button> */}
-                {/* <p>{this.props.userInfo}</p> */}
-            </div>
+            </div> 
         ) : (
             <div>
                 Please Log In

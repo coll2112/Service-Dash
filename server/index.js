@@ -3,7 +3,7 @@ const express = require('express')
 const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
-const {getCustomers, addUserInfo, getCustomer, addEmployee, getAllRequests, submitApp, getAppStatus, deleteRequest} =  require('./controller/controller')
+const {getCustomers, addUserInfo, getCustomer, addEmployee, getAllRequests, submitApp, getAppStatus, deleteRequest, acceptRequest} =  require('./controller/controller')
 const {login, register, logout, userSession} =  require('./controller/authcontroller')
 
 const app=express()
@@ -35,6 +35,7 @@ app.post('/api/submitApplication', submitApp)
 app.post('/api/addEmployee', addEmployee)
 app.get('/api/requests', getAllRequests)
 app.delete('/api/remove/:id', deleteRequest)
+app.post('/api/status/:id', statusRequest)
 
 //User login, logout, session and register
 app.get('/api/user', userSession)

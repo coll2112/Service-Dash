@@ -26,11 +26,6 @@ class Login extends Component{
         // const {login} = this.props
         axios.post('api/login', {username, password}).then(()=>{
             this.props.getUser()
-            // if(this.props.user.isAdmin === null){
-            //     this.context.history.push('/account')
-            // }else{
-            //     this.context.history.push('/portal')    
-            // }
             this.props.history.push('/')
         }).catch((err)=>{
             console.log(err)

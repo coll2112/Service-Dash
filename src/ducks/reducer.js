@@ -4,9 +4,11 @@ const initialState = {
     user:{},
     userInfo:{},
     serviceRequests: [],
+    serviceRequestsAccepted: [],
+    serviceRequestsDenied: [],
     err: false,
-    login: true
-    //show login ^^
+    login: true,
+    isLoading: false
 }
 
 const GET_USER = 'GET_USER'
@@ -86,10 +88,21 @@ export default function reducer(state=initialState, action){
             ...state,
             err: true
         }
+        case `${GET_SERVICE_REQUESTS}_PENDING`:
+        return{
+            ...state,
+            isLoading: true
+        }
         case `${GET_SERVICE_REQUESTS}_FULFILLED`:
         return{
             ...state,
-            serviceRequests: action.payload.data
+            serviceRequests: action.payload.data,
+            isLoading: false
+        }
+        case `${GET_SERVICE_REQUESTS}_REJECTED`:
+        return{
+            ...state,
+            err: true
         }
         default:
         return state;
