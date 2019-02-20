@@ -42,15 +42,14 @@ class UserAccount extends Component{
     }
 
     render(){
-        if(this.props.userInfo[0]){
-            console.log(this.props.userInfo[0])
-        }
+        // if(this.props.userInfo[0]){
+        //     console.log(this.props.userInfo[0])
+        // }
 
-        console.log(this.props.user)
+        // console.log(this.props.user)
         
         return this.props.user.username && this.props.userInfo[0] ? (
              <div>
-                <Link to='/dashboard/application'>Service Application</Link>
                 <p>Hello, {this.props.userInfo[0].firstname}</p>
                 <p>User Info Here</p>
                 <form onSubmit={this.submitInfo} className='infoForm'>

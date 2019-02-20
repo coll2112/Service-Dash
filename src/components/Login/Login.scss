@@ -3,39 +3,39 @@
 .login-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     padding-top: 10vh;
+    width: 30vw;
+    // border: 1px solid black;
+    margin: auto;
 
     button{
         margin-top: 5vh;
         border: none;
         font-size: 1.5em;
-        background: #242424dd;
-        transition: background-color .3s linear;
+        background: $secondaryColor;
+        transition: background-color .15s linear;
         color: #F1FFFA;
         height: 10vh;
-        width: 20%;
+        // width: 20%;
 
         &:hover{
-            background-color: #242424f7;
+            background-color: #242424dd;
         }
     }
 }
 
 .inputs{
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     color: $secondaryColor;
    
     p{
-        font-size: 1.5em;
+        font-size: 1.1em;
+        z-index: -1;
+        opacity: .5;
     }
-}
-
-.inputs > p:nth-child(3){
-    padding-top: 30px;
 }
 
 .inputs{
@@ -45,14 +45,17 @@
         border: none;
         border-bottom: 2px solid #2424244c;
         transition: border-bottom .2s ease-out;
-        font-size: 2em;
+        font-size: 1.5em;
         color: #505050;
         text-align: center;
-        padding-top: 20px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        // transition: margin .3s linear;
 
         &:focus{
             outline: none;
             border-bottom: 2px solid #242424;
+            // margin-top: 0px;
         }
     }
 

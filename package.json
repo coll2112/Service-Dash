@@ -13,6 +13,7 @@
     "massive": "^5.7.5",
     "material-ui": "^0.20.2",
     "node-sass": "^4.11.0",
+    "nodemailer": "^5.1.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-loader-spinner": "^2.3.0",

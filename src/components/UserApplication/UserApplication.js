@@ -9,7 +9,7 @@ class UserApplication extends Component{
         super();
         this.state={
             comment: '',
-            appStatus: {}
+            appStatus: ''
         }
     }
     async componentDidMount(){
@@ -19,7 +19,7 @@ class UserApplication extends Component{
     }
 
     // getAppStatus=()=>{
-    //     const {id} = this.props.user
+    //     const {id} = this.props.userInfo
     //     axios.get(`/api/appStatus/${id}`).then(response=>{
     //         console.log(response)
     //         this.setState({appStatus:response})
@@ -46,8 +46,8 @@ class UserApplication extends Component{
     }
 
     render(){
-        console.log(this.state.appStatus)
-        return(
+        // console.log(this.state.appStatus)
+        return this.props.user.username ? (
             <div>
                 <h3>Submit Service Request</h3>
                 <div>
@@ -61,12 +61,16 @@ class UserApplication extends Component{
                 <form onSubmit={this.submitApplication}>
                     <label></label>
                     <p>Please fill out the comment box below and let us know what we can assist with.</p>
-                    <input type='textarea' name='comment' onChange={this.updateInput}/>
+                    <textarea rows='5' name='comment' onChange={this.updateInput}/>
                     <button>Submit Application</button>
                 </form>
                 {/* <div>
                     <h3>Status of Application: {this.state.appStatus.status}</h3>
                 </div> */}
+            </div>
+        ) : (
+            <div>
+                <h2>Please log in</h2>
             </div>
         )
     }

@@ -8,14 +8,6 @@ import './AdminServiceRequests.scss'
 
 class AdminServiceRequests extends Component{
 
-    constructor(){
-        super();
-        this.state={
-            togglePending: false,
-            toggleAccepted: false
-        }
-    }
-
     componentDidMount(){
         this.props.getRequests()
     }
@@ -47,18 +39,12 @@ class AdminServiceRequests extends Component{
         })
     }
 
-    checkPending=()=>{
-        this.setState({togglePending:!this.state.togglePending})
-        this.props.getRequests();
-    }
-
-    checkAccepted=()=>{
-        this.setState({toggleAccepted:!this.state.toggleAccepted})
-        this.props.getRequests();
-    }
-
-    render(){
-        const requestMap = this.props.serviceRequests.map((e,i)=>{
+    render(){ 
+        const deniedRequests = this.props.serviceRequests.filter((e)=>{
+            return e.status === 'Denied'
+        })
+        
+        const deniedMap = deniedRequests.map((e,i)=>{
             return(
                 <div key={i} className='requestMap'>
                     <h2>{e.firstname} {e.lastname}</h2>
@@ -74,47 +60,6 @@ class AdminServiceRequests extends Component{
             )
         })
 
-        const pendingRequests = this.props.serviceRequests.filter((e)=>{
-            return e.status === 'Pending'
-        })
-
-        const pendingMap = pendingRequests.map((e,i)=>{
-            return(
-                <div key={i} className='requestMap'>
-                    <h2>{e.firstname} {e.lastname}</h2>
-                    <h3 className='userComments'>Request:</h3>
-                    <p>{e.comment}</p>
-                    <h3 className='appStatus'>Application Status: {e.status}</h3>
-                    <div className='requestBtns'>
-                        <button onClick={()=>this.acceptRequest(e.app_id)}>Accept</button>
-                        <button onClick={()=>this.denyRequest(e.app_id)}>Deny</button>
-                        <button onClick={()=>this.deleteRequest(e.app_id)}>Delete</button>
-                    </div>
-                </div>
-            )
-        })
-
-        const acceptedRequests = this.props.serviceRequests.filter((e)=>{
-            return e.status === 'Approved'
-        })
-
-        const acceptedMap = acceptedRequests.map((e,i)=>{
-            return(
-                <div key={i} className='requestMap'>
-                    <h2>{e.firstname} {e.lastname}</h2>
-                    <h3 className='userComments'>Request:</h3>
-                    <p>{e.comment}</p>
-                    <h3 className='appStatus'>Application Status: {e.status}</h3>
-                    <div className='requestBtns'>
-                        <button onClick={()=>this.acceptRequest(e.app_id)}>Accept</button>
-                        <button onClick={()=>this.denyRequest(e.app_id)}>Deny</button>
-                        <button onClick={()=>this.deleteRequest(e.app_id)}>Delete</button>
-                    </div>
-                </div>
-            )
-        })
-
-        console.log(this.state.renderToggle)
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">
@@ -124,9 +69,10 @@ class AdminServiceRequests extends Component{
                 <div className='requestList'>
                     <div className='filterBtns'>
                         <NavLink to='/portal/requests/accepted'><button>View Accepted Requests</button></NavLink>
+                        <NavLink to='/portal/requests'><button>View All Requests</button></NavLink>
                         <NavLink to='/portal/requests/denied'><button>View Denied Requests</button></NavLink>
                     </div>
-                    {pendingMap}
+                    {deniedMap}
                 </div>
         ) : (
             <div>

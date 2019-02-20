@@ -10,7 +10,8 @@ class Register extends Component{
         super();
         this.state={
             username:'',
-            password:''
+            password:'',
+            email: ''
         }
     }
 
@@ -24,8 +25,8 @@ class Register extends Component{
     }
 
     registerUser=()=>{
-        const {username, password} =  this.state
-        axios.post('/api/register', {username, password}).then(response=>{
+        const {username, password, email} =  this.state
+        axios.post('/api/register', {username, password, email}).then(()=>{
             this.props.getUser()
             this.props.history.push('/')
             // this.props.loginChange();
@@ -35,14 +36,16 @@ class Register extends Component{
     }
 
     render(){
-        // console.log(this.state.password)
+        // console.log(this.state.email)
         return(
             <div className='login-container'>
                 <div className='inputs'>
                     <p>Username:</p>
-                    <input type='text' name='username' onChange={this.updateInput}/>
+                    <input type='text' name='username' required autocomplete="off" onChange={this.updateInput}/>
+                    <p>Email:</p>
+                    <input type='' name='email' required autocomplete="off" onChange={this.updateInput}/>
                     <p>Password:</p>
-                    <input type='password' name='password' onChange={this.updateInput}/>
+                    <input type='' name='password' required autocomplete="off" onChange={this.updateInput}/>
                 </div>
                 <button onClick={()=>this.registerUser()}>Register</button>
             </div>

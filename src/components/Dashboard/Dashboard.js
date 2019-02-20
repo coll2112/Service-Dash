@@ -11,8 +11,9 @@ class Dashboard extends Component{
     render(){
         return this.props.user.username ? (
             <div>
-                <NavLink to='/dashboard/account'>Account Information</NavLink>
                 <p>Welcome {this.props.user.username}</p>
+                <NavLink to='/dashboard/account'><button>Account Information</button></NavLink>
+                <NavLink to='/dashboard/application'><button>Service Application</button></NavLink>
             </div>
         ) : (
             <div>

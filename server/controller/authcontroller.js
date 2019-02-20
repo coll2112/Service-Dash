@@ -27,7 +27,8 @@ const register = async (req, res)=>{
         const response = await db.addUser({
             username: req.body.username,
             password: hash,
-            admin: req.body.admin
+            admin: req.body.admin,
+            email: req.body.email
         })
         req.session.user={username: response[0].username, id: response[0].id}
         res.json(req.session.user)

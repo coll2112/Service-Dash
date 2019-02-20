@@ -9,7 +9,10 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar/>
-        {routes}
+        <div className='main'>
+          {routes}
+        </div>
+        
       </div> 
     );
   }
