@@ -68,11 +68,15 @@ class AdminServiceRequests extends Component{
                     :
                 <div className='requestList'>
                     <div className='filterBtns'>
-                        <NavLink to='/portal/requests/accepted'><button>View Accepted Requests</button></NavLink>
-                        <NavLink to='/portal/requests'><button>View All Requests</button></NavLink>
-                        <NavLink to='/portal/requests/denied'><button>View Denied Requests</button></NavLink>
+                        <h3>Filter Requests</h3>
+                        <NavLink to='/portal/requests/accepted'><button>Accepted Requests</button></NavLink>
+                        <NavLink to='/portal/requests'><button>Pending Requests</button></NavLink>
+                        <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
-                    {deniedMap}
+                    <div>
+                        <h2>Denied Requests</h2>
+                        {deniedMap}
+                    </div>
                 </div>
         ) : (
             <div>

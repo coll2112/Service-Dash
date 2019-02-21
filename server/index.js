@@ -3,8 +3,16 @@ const express = require('express')
 const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
-// const nodemailer = require('nodemailer')
-const {getCustomers, addUserInfo, getCustomer, addEmployee, getAllRequests, submitApp, getAppStatus, deleteRequest, acceptRequest} =  require('./controller/controller')
+const {getCustomers, 
+       addUserInfo, 
+       getCustomer, 
+       addEmployee, 
+       getAllRequests, 
+       submitApp, 
+       getAppStatus, 
+       deleteRequest,
+       getEmployees
+    } =  require('./controller/controller')
 const {login, register, logout, userSession} =  require('./controller/authcontroller')
 
 const app=express()
@@ -19,20 +27,7 @@ app.use(session({
     }
 }))
 
-// var transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth:{
-//         user: process.env.EMAIL,
-//         pass: process.env.PASSWORD
-//     }
-// })
 
-// const mailOptions = {
-//     from: 'no-reply@Push.Co',
-//     to: process.env.EMAIL,
-//     subject: 'Welcome to PushCo!',
-//     html: '<p>Thanks for choosing PushCo. Please be sure to update your account info to accurate user info.</p>'
-// }
 
 massive(process.env.CONNECTION_STRING).then(db=>{
     app.set('db', db)
@@ -52,6 +47,7 @@ app.post('/api/addEmployee', addEmployee)
 app.get('/api/requests', getAllRequests)
 app.delete('/api/remove/:id', deleteRequest)
 app.post('/api/status/:id', statusRequest)
+app.get('/api/employees', getEmployees)
 
 //User login, logout, session and register
 app.get('/api/user', userSession)

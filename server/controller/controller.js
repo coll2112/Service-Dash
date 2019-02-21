@@ -1,3 +1,5 @@
+
+
 const getCustomers = (req, res) =>{
     const db = req.app.get('db')
     db.getAllCustomers().then(response=>{
@@ -112,6 +114,17 @@ statusRequest = (req, res) => {
     })
 }
 
+getEmployees=(req,res)=>{
+    const db = req.app.get('db')
+
+    db.getAllEmployees().then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed to get employee data'})
+    })
+}
+
 module.exports={
     getCustomers,
     getCustomer,
@@ -121,5 +134,6 @@ module.exports={
     submitApp,
     getAppStatus,
     deleteRequest,
-    statusRequest
+    statusRequest,
+    getEmployees
 }

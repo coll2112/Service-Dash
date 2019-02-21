@@ -20,7 +20,7 @@ class Landing extends Component{
                     {
                     this.props.user.username ? 
                     <h4>Hello {this.props.user.username}!</h4> : 
-                    <Link to='register'><button className='button'>Sign Up Now!</button></Link>
+                    <button className='button' onClick={()=>this.props.history.push('register')}>Sign Up Now!</button>
                     }
                 </div>
             </div>

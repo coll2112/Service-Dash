@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getUser, getRequests} from '../../ducks/reducer'
+import {getUser, getRequests, getEmployees} from '../../ducks/reducer'
 import axios from 'axios';
-import routes from '../../routes'
+import Loader from 'react-loader-spinner'
+import EmployeeList from '../EmployeeList/EmployeeList'
 
 class AdminPortal extends Component{
     constructor(){
@@ -17,6 +18,7 @@ class AdminPortal extends Component{
     async componentDidMount(){
         await this.props.getUser()
         this.props.getRequests()
+        this.props.getEmployees()
     }
 
     toggleAddEmployee=()=>{
@@ -32,6 +34,7 @@ class AdminPortal extends Component{
         e.preventDefault()
         axios.post('api/addEmployee', {employeeFirstName, employeeLastName}).then(()=>{
             console.log('it worked')
+            this.props.getEmployees()
         }).catch(err=>{
             console.log(err)
         })
@@ -41,17 +44,17 @@ class AdminPortal extends Component{
     render(){
         console.log(this.state.user)
 
-        // const pendingRequests = this.props.serviceRequests.filter((e)=>{
-        //     return e.status === 'Pending'
-        // })
-        
-        // const deniedRequests = this.props.serviceRequests.filter((e)=>{
-        //     return e.status === 'Denied'
-        // })
-        
-        // const acceptedRequests = this.props.serviceRequests.filter((e)=>{
-        //     return e.status === 'Approved'
-        // })
+        const pendingRequests = this.props.serviceRequests.filter((e)=>{
+            return e.status === 'Pending'
+        })
+
+        const acceptedRequests = this.props.serviceRequests.filter((e)=>{
+            return e.status === 'Approved'
+        })
+
+        const deniedRequests = this.props.serviceRequests.filter((e)=>{
+            return e.status === 'Denied'
+        })
 
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
             <div>
@@ -66,16 +69,16 @@ class AdminPortal extends Component{
                         </form>
                     </div> : null
                 }
-                <button onClick={()=>this.props.history.push('/portal/requests')}>Check Service Requests</button>
-                {/* {deniedRequests.map((e,i)=>{
-                    return(
-                        <div key={i}>
-                            <p>{e.firstname}</p>
-                            <p>{e.comment}</p>
-                            <p>{e.status}</p>
-                        </div>
-                    )
-                })} */}
+                {/* <button onClick={()=>this.props.history.push('/portal/requests')}>Check Service Requests</button> */}
+                <div>
+                    <h2>Pending Requests: {pendingRequests.length}</h2>
+                    <button onClick={()=>this.props.history.push('/portal/requests/')}>View Pending Requests</button>
+                    <h2>Approved Requests: {acceptedRequests.length}</h2>
+                    <button onClick={()=>this.props.history.push('/portal/requests/accepted')}>View Pending Requests</button>
+                    <h2>Denied Requests: {deniedRequests.length}</h2>
+                    <button onClick={()=>this.props.history.push('/portal/requests/denied')}>View Pending Requests</button>
+                </div>
+                <EmployeeList/>
             </div>
         ) : (
             <div>Admins Only</div>
@@ -85,4 +88,4 @@ class AdminPortal extends Component{
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {getUser, getRequests})(AdminPortal);
+export default connect(mapStateToProps, {getUser, getRequests, getEmployees})(AdminPortal);

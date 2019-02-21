@@ -10,18 +10,11 @@
 
 .requestList{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    width: 50vw;
+    flex-direction: row;
+    justify-content: space-around;
+    // align-items: ;
+    width: 80vw;
     margin: auto;
-
-    // .requestHeader{
-    //     height: 10vh;
-    //     width: 100%;
-    //     margin-top: 50px;
-    //     background: $secondaryColor;
-    // }
 
     .requestMap{
         padding: 35px 15px;
@@ -29,6 +22,7 @@
         // border-bottom: 50px solid $secondaryColor;
         border: 2px solid $secondaryColor;
         margin: 25px 0;
+        width: 50vw;
 
         p{
             border: 1px solid $accentColor;
@@ -55,24 +49,35 @@
 
     .filterBtns{
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-between;
         position: sticky;
-        top: 9vh;
-        // padding-top: 30px;
+        top: 12vh;
+        margin-top: 10vh;
+        height: 30vh;
+        // border: 1px solid black;
+
+        h3{
+            padding: 0;
+            margin: 0;
+            text-decoration: underline;
+        }
 
         button{
             border: none;
-            background: $secondaryColor;
-            padding: 15px 10px;
+            background: $accentColor;
+            padding: 15px 0px;
             font-size: 1em;
             color: $primaryColor;
             transition: background-color .2s linear;
-            border-radius: 0px 0px 10px 10px;
-            font-weight: 200;
+            // border-radius: 10px 10px 10px 10px;
+            font-weight: 400;
             outline: none;
+            width: 15vw;
 
             &:hover{
-                background-color: $accentColor;
+                background-color: $secondaryColor;
             }
         }
     }

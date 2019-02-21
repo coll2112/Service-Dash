@@ -4,8 +4,7 @@ const initialState = {
     user:{},
     userInfo:{},
     serviceRequests: [],
-    serviceRequestsAccepted: [],
-    serviceRequestsDenied: [],
+    employees: [],
     err: false,
     login: true,
     isLoading: false
@@ -16,6 +15,7 @@ const LOGOUT = 'LOGOUT'
 const LOGIN_CHANGE = 'LOGIN_CHANGE'
 const GET_USER_INFO = 'GET_USER_INFO'
 const GET_SERVICE_REQUESTS = 'GET_SERVICE_REQUESTS'
+const GET_EMPLOYEES = 'GET_EMPLOYEES'
 
 export const getUser=()=>{
     return{
@@ -50,6 +50,13 @@ export const getRequests=()=>{
     return{
         type: GET_SERVICE_REQUESTS,
         payload: axios.get('/api/requests')
+    }
+}
+
+export const getEmployees=()=>{
+    return{
+        type: GET_EMPLOYEES,
+        payload: axios.get('/api/employees')
     }
 }
 
@@ -100,6 +107,22 @@ export default function reducer(state=initialState, action){
             isLoading: false
         }
         case `${GET_SERVICE_REQUESTS}_REJECTED`:
+        return{
+            ...state,
+            err: true
+        }
+        case `${GET_EMPLOYEES}_FULFILLED`:
+        return{
+            ...state,
+            employees: action.payload.data,
+            isLoading: false
+        }
+        case `${GET_EMPLOYEES}_PENDING`:
+        return{
+            ...state,
+            isLoading: true
+        }
+        case `${GET_EMPLOYEES}_REJECTED`:
         return{
             ...state,
             err: true

@@ -12,7 +12,7 @@ class AdminServiceRequests extends Component{
         super();
         this.state={
             togglePending: false,
-            toggleAccepted: false
+            btnText: 'Pending Requests'
         }
     }
 
@@ -48,13 +48,15 @@ class AdminServiceRequests extends Component{
     }
 
     checkPending=()=>{
-        this.setState({togglePending:!this.state.togglePending})
         this.props.getRequests();
-    }
-
-    checkAccepted=()=>{
-        this.setState({toggleAccepted:!this.state.toggleAccepted})
-        this.props.getRequests();
+        if(this.state.togglePending){
+            this.setState({btnText:'Pending Requests'})
+        }else{
+            this.setState({
+                btnText:'All Requests',
+                togglePending: false
+            })
+        }
     }
 
     render(){
@@ -94,27 +96,7 @@ class AdminServiceRequests extends Component{
             )
         })
 
-        const acceptedRequests = this.props.serviceRequests.filter((e)=>{
-            return e.status === 'Approved'
-        })
-
-        const acceptedMap = acceptedRequests.map((e,i)=>{
-            return(
-                <div key={i} className='requestMap'>
-                    <h2>{e.firstname} {e.lastname}</h2>
-                    <h3 className='userComments'>Request:</h3>
-                    <p>{e.comment}</p>
-                    <h3 className='appStatus'>Application Status: {e.status}</h3>
-                    <div className='requestBtns'>
-                        <button onClick={()=>this.acceptRequest(e.app_id)}>Accept</button>
-                        <button onClick={()=>this.denyRequest(e.app_id)}>Deny</button>
-                        <button onClick={()=>this.deleteRequest(e.app_id)}>Delete</button>
-                    </div>
-                </div>
-            )
-        })
-
-        console.log(this.state.renderToggle)
+        console.log(this.state.togglePending)
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">
@@ -123,10 +105,15 @@ class AdminServiceRequests extends Component{
                     :
                 <div className='requestList'>
                     <div className='filterBtns'>
-                        <NavLink to='/portal/requests/accepted'><button>View Accepted Requests</button></NavLink>
-                        <NavLink to='/portal/requests/denied'><button>View Denied Requests</button></NavLink>
+                        <h3>Filter Requests</h3>
+                        <NavLink to='/portal/requests/accepted'><button>Accepted Requests</button></NavLink>
+                        <button>Pending Requests</button>
+                        <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
-                    {pendingMap}
+                    <div>
+                        <h2>Pending Requests</h2>
+                        {pendingMap}
+                    </div>
                 </div>
         ) : (
             <div>

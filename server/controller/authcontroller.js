@@ -1,4 +1,26 @@
+require('dotenv').config()
 const bcrypt = require('bcryptjs')
+const nodemailer = require('nodemailer')
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth:{
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+    }
+})
+
+const htmlBody = "PushCo is a fictional site developed by Lee Collins. PushCo was built to demonstrate the ability to develop web apps with React, Node, SQL, and other technologies."
+
+// Template MailOptions Config
+
+// const mailOptions = {
+//     from: 'no-reply@Push.Co',
+//     to: email,
+//     subject: 'Welcome to PushCo!',
+//     text: 'Thanks for choosing PushCo. Please be sure to update your account info to accurate user info.',
+//     html: '<p>Thanks for choosing PushCo. Please be sure to update your account info to accurate user info.</p>'
+// }
 
 const login = (req, res) =>{
     const db = req.app.get('db')
@@ -22,6 +44,13 @@ const login = (req, res) =>{
 const register = async (req, res)=>{
     const db = req.app.get('db')
     const hash = await bcrypt.hash(req.body.password, 10)
+    const mailOptions = {
+        from: '"PushCo Creator" <PortfolioEmailTest@gmail.com>',
+        to: req.body.email,
+        subject: 'Welcome to PushCo!',
+        text: "Thanks for choosing PushCo. Please be sure to update your account info when logging in for the first time. We thank you for choosing PushCo!",
+        html: `<p>Hello, ${req.body.username}. Thanks for choosing PushCo. Please be sure to update your account info when logging in for the first time. We thank you for choosing PushCo!</p>`
+    }
 
     try{
         const response = await db.addUser({
@@ -31,6 +60,7 @@ const register = async (req, res)=>{
             email: req.body.email
         })
         req.session.user={username: response[0].username, id: response[0].id}
+        transporter.sendMail(mailOptions)
         res.json(req.session.user)
     }catch(err){
         console.log(err)
