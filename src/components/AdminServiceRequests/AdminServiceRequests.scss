@@ -11,18 +11,18 @@
 .requestList{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     // align-items: ;
-    width: 80vw;
-    margin: auto;
+    width: 100vw;
 
     .requestMap{
         padding: 35px 15px;
-        // border-top: 50px solid $secondaryColor;
-        // border-bottom: 50px solid $secondaryColor;
-        border: 2px solid $secondaryColor;
+        // border-top: 5px solid $accentColor;
+        // border-bottom: 5px solid $accentColor;
+        // border: 2px solid $secondaryColor;
+        border-radius: 2em;
         margin: 25px 0;
-        width: 50vw;
+        width: 40vw;
 
         p{
             border: 1px solid $accentColor;
@@ -55,6 +55,7 @@
         position: sticky;
         top: 12vh;
         margin-top: 10vh;
+        margin-right: 5vw;
         height: 30vh;
         // border: 1px solid black;
 
@@ -71,7 +72,7 @@
             font-size: 1em;
             color: $primaryColor;
             transition: background-color .2s linear;
-            // border-radius: 10px 10px 10px 10px;
+            border-radius: 99999em;
             font-weight: 400;
             outline: none;
             width: 15vw;
@@ -95,7 +96,7 @@
         font-size: 1em;
         color: $primaryColor;
         transition: background-color .2s linear;
-        // border-radius: 5px;
+        border-radius: 9999em;
         font-weight: 600;
 
         &:hover{

@@ -54,6 +54,19 @@ addEmployee=(req, res)=>{
     })
 }
 
+const removeEmployee=(req,res)=>{
+    const db = req.app.get('db')
+    // const {id} = req.params
+    // console.log('hitt')
+
+    db.deleteEmployee(req.params.id).then(()=>{
+        res.status(200).send('Employee removed')
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error:'Failed to Remove Employee'})
+    })
+}
+
 getAllRequests = (req, res)=>{
     const db = req.app.get('db')
     // console.log('hit')
@@ -135,5 +148,6 @@ module.exports={
     getAppStatus,
     deleteRequest,
     statusRequest,
-    getEmployees
+    getEmployees,
+    removeEmployee
 }

@@ -2,12 +2,19 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getEmployees} from '../../ducks/reducer'
 import Loader from 'react-loader-spinner'
+import axios from 'axios'
 import './EmployeeList.scss'
 
 class EmployeeList extends Component{
     
     componentDidMount(){
         this.props.getEmployees();
+    }
+
+    removeEmployee=(id)=>{
+        axios.delete(`/api/employee/remove/${id}`).then(response=>{
+            this.props.getEmployees()
+        }).catch(err=>console.log(err))
     }
 
     render(){
@@ -17,6 +24,7 @@ class EmployeeList extends Component{
                     <div key={i} className='employeeList'>
                         <h3>Employee ID: {e.employee_id}</h3>
                         <h3>{e.firstname} {e.lastname}</h3>
+                        <button onClick={()=>this.removeEmployee(e.employee_id)}>Remove Employee</button>
                     </div>
                 </div>
             )

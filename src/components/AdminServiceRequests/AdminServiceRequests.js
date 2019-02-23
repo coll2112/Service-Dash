@@ -49,14 +49,14 @@ class AdminServiceRequests extends Component{
 
     checkPending=()=>{
         this.props.getRequests();
-        if(this.state.togglePending){
-            this.setState({btnText:'Pending Requests'})
-        }else{
-            this.setState({
-                btnText:'All Requests',
-                togglePending: false
-            })
-        }
+        // if(this.state.togglePending){
+        //     this.setState({btnText:'Pending Requests'})
+        // }else{
+        //     this.setState({
+        //         btnText:'All Requests',
+        //         togglePending: false
+        //     })
+        // }
     }
 
     render(){
@@ -107,12 +107,12 @@ class AdminServiceRequests extends Component{
                     <div className='filterBtns'>
                         <h3>Filter Requests</h3>
                         <NavLink to='/portal/requests/accepted'><button>Accepted Requests</button></NavLink>
-                        <button>Pending Requests</button>
+                        <button onClick={()=>this.checkPending()}>Pending Requests</button>
                         <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
                     <div>
                         <h2>Pending Requests</h2>
-                        {pendingMap}
+                        {!this.props.pendingRequests > 1 ? <div>There are currently no pending requests</div> : pendingMap}
                     </div>
                 </div>
         ) : (

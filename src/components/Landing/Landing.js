@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
+import SiteInfo from '../SiteInfo/SiteInfo'
+import Testimonials from '../Testimonials/Testimonials'
 import './Landing.scss'
+
 
 class Landing extends Component{
 
@@ -14,15 +16,17 @@ class Landing extends Component{
     render(){
         return(
             <div className='container'>
-                <div className='landing-flex'>
-                    <h2>PushCo</h2>
-                    <h3>Pushing for Perfection</h3>
-                    {
-                    this.props.user.username ? 
-                    <h4>Hello {this.props.user.username}!</h4> : 
-                    <button className='button' onClick={()=>this.props.history.push('register')}>Sign Up Now!</button>
-                    }
-                </div>
+                    <div className='showcase'>
+                        <h2>PushCo</h2>
+                        <h3>Pushing for Perfection</h3>
+                        {
+                        this.props.user.username ? 
+                        null : 
+                        <button className='button' onClick={()=>this.props.history.push('register')}>Sign Up Now!</button>
+                        }
+                    </div>
+                <SiteInfo/>
+                <Testimonials/>
             </div>
         )
     }

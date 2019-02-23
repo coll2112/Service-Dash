@@ -2,6 +2,14 @@
 
 .container{
     color: $primaryColor;
+}
+
+.showcase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
 
     &::after{
         background-attachment: fixed;
@@ -9,7 +17,7 @@
         background-size: 130%;
         background-position: center;
         content: "";
-        opacity: 0.9;
+        opacity: 0.8;
         top: 0;
         left: 0;
         bottom: 0;
@@ -18,14 +26,6 @@
         z-index: -1;
         overflow: hidden;
     }
-}
-
-.landing-flex{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
 
     h2{
         font-size: 7em;
@@ -59,16 +59,19 @@
     padding: 15px 55px;
     border-radius: 5px;
     font-size: 1.3em;
+    font-weight: 500;
     margin-top: 40px;
     background: $primaryColor;
-    transition: background-color .2s linear, transform .15s linear;
+    transition: background-color .2s linear, transform .15s linear, box-shadow .2s linear;
     animation: showcaseIntro .6s linear .8s;
     animation-fill-mode: forwards;
     opacity: 0;
+    box-shadow: 1px 1px 1px $shadowColor;
 
     &:hover{
         background-color: #d3e0dc;
         transform: scale(1.05);
+        box-shadow: 2px 1px 3px $shadowColor;
     }
 }
 

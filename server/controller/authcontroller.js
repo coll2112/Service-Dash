@@ -10,7 +10,7 @@ var transporter = nodemailer.createTransport({
     }
 })
 
-const htmlBody = "PushCo is a fictional site developed by Lee Collins. PushCo was built to demonstrate the ability to develop web apps with React, Node, SQL, and other technologies."
+// const htmlBody = "PushCo is a fictional site developed by Lee Collins. PushCo was built to demonstrate the ability to develop web apps with React, Node, SQL, and other technologies."
 
 // Template MailOptions Config
 

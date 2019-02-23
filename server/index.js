@@ -11,9 +11,12 @@ const {getCustomers,
        submitApp, 
        getAppStatus, 
        deleteRequest,
-       getEmployees
-    } =  require('./controller/controller')
-const {login, register, logout, userSession} =  require('./controller/authcontroller')
+       getEmployees,
+       removeEmployee} =  require('./controller/controller')
+const {login, 
+       register, 
+       logout, 
+       userSession} =  require('./controller/authcontroller')
 
 const app=express()
 app.use(json())
@@ -43,11 +46,12 @@ app.put('/api/editUserInfo/:id', addUserInfo)
 app.post('/api/submitApplication', submitApp)
 
 //employee
-app.post('/api/addEmployee', addEmployee)
 app.get('/api/requests', getAllRequests)
-app.delete('/api/remove/:id', deleteRequest)
-app.post('/api/status/:id', statusRequest)
 app.get('/api/employees', getEmployees)
+app.post('/api/addEmployee', addEmployee)
+app.post('/api/status/:id', statusRequest)
+app.delete('/api/remove/:id', deleteRequest)
+app.delete('/api/employee/remove/:id', removeEmployee)
 
 //User login, logout, session and register
 app.get('/api/user', userSession)

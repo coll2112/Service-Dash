@@ -43,9 +43,9 @@ class Register extends Component{
                     <p>Username:</p>
                     <input type='text' name='username' required autocomplete="off" onChange={this.updateInput}/>
                     <p>Email:</p>
-                    <input type='' name='email' required autocomplete="off" onChange={this.updateInput}/>
+                    <input type='email' name='email' required autocomplete="off" onChange={this.updateInput}/>
                     <p>Password:</p>
-                    <input type='' name='password' required autocomplete="off" onChange={this.updateInput}/>
+                    <input type='password' name='password' required autocomplete="off" onChange={this.updateInput}/>
                 </div>
                 <button onClick={()=>this.registerUser()}>Register</button>
             </div>
