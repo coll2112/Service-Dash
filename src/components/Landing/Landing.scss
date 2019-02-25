@@ -13,11 +13,11 @@
 
     &::after{
         background-attachment: fixed;
-        background-image: url('../../images/business_bg.jpg');
+        background-image: url('../../images/bg_1.jpg');
         background-size: 130%;
-        background-position: center;
+        background-position: center bottom;
         content: "";
-        opacity: 0.8;
+        opacity: 0.7;
         top: 0;
         left: 0;
         bottom: 0;
@@ -29,47 +29,63 @@
 
     h2{
         font-size: 7em;
-        text-shadow: 2px 1px 3px $shadowColor;
-        margin-bottom: -20px;
+        text-shadow: 2px 2px 2px $shadowColor, -2px -2px 2px $shadowColor;
+        // text-shadow: 
+        //     0 -1px 0 #fff, 
+        //     0 1px 0 #2e2e2e, 
+        //     0 2px 0 #2c2c2c, 
+        //     0 3px 0 #2a2a2a, 
+        //     0 4px 0 #282828, 
+        //     0 5px 0 #262626, 
+        //     0 6px 0 #242424, 
+        //     0 7px 0 #222, 
+        //     0 8px 0 #202020, 
+        //     0 9px 0 #1e1e1e, 
+        //     0 10px 0 #1c1c1c, 
+        //     0 11px 0 #1a1a1a, 
+        //     0 12px 0 #181818, 
+        //     0 13px 0 #161616, 
+        //     0 14px 0 #141414, 
+        //     0 15px 0 #121212, 
+        //     0 22px 30px rgba(0, 0, 0, 0.9);
+        // text-shadow: 1px 2px 1px $shadowColor, -1px -2px 1px $shadowColor;
+        // margin-bottom: -20px;
         animation: showcaseIntro .9s linear, slideInRight 1.2s ease-out;
         animation-fill-mode: forwards;
         opacity: 0;
+        margin: 10px;
+        font-family: $courgette;
     }
 
     h3{
         font-size: 1.7em;
-        text-shadow: 2px 1px 3px $shadowColor;
+        font-family: $nunito;
+        // text-shadow: 2px 1px 3px $shadowColor;
+        text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
         animation: showcaseIntro .9s linear, slideInLeft 1.2s ease-out;
         animation-fill-mode: forwards;
         opacity: 0;
+        margin: 0;
     }    
-
-    h4{
-        font-size: 1.7em;
-        font-weight: 300;
-        text-shadow: 2px 1px 3px $shadowColor;
-        animation: usernameIntro .8s linear;
-        animation-fill-mode: forwards;
-        position: relative;
-    }
-} 
+}
 
 .button{
     border: none;
     padding: 15px 55px;
     border-radius: 5px;
     font-size: 1.3em;
-    font-weight: 500;
-    margin-top: 40px;
-    background: $primaryColor;
+    font-weight: 600;
+    margin-top: 30px;
+    background: $accentColor;
     transition: background-color .2s linear, transform .15s linear, box-shadow .2s linear;
     animation: showcaseIntro .6s linear .8s;
     animation-fill-mode: forwards;
     opacity: 0;
+    color: $primaryColor;
     box-shadow: 1px 1px 1px $shadowColor;
 
     &:hover{
-        background-color: #d3e0dc;
+        background-color: $accentColor;
         transform: scale(1.05);
         box-shadow: 2px 1px 3px $shadowColor;
     }

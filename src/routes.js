@@ -23,8 +23,8 @@ export default (
     <Switch>
         {/* Landing, Login, and Register */}
         <Route exact path='/' component={Landing}/>
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/register' component={Register}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/register' component={Register}/>
 
         {/* User Side Routes */}
         <Route exact path='/dashboard' component={Dashboard}/>

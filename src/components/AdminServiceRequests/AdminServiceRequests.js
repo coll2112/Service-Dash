@@ -100,7 +100,7 @@ class AdminServiceRequests extends Component{
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">
-                    <Loader Loader type="Oval" color="#7C90A0" height={100} width={100}/>
+                    <Loader type="Oval" color="#7C90A0" height={100} width={100}/>
                 </div>
                     :
                 <div className='requestList'>

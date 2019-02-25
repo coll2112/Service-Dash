@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo, logout} from '../../ducks/reducer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Navbar.scss'
 
 
@@ -13,28 +14,31 @@ class Navbar extends Component{
     }
 
     render(){
-        // console.log(this.props.user)
+        console.log(this.props.user)
         return(
             <div className='navbar'>
-                <Link to='/'><h1>Push.Co</h1></Link>
+                <div className='logo'>
+                    <FontAwesomeIcon icon='people-carry' size='2x'/>
+                    <Link to='/'><h1>Push.Co</h1></Link>
+                </div>
                 <div className='links'>
-                    <NavLink to='/' activeClassName='active' exact><li>Home</li></NavLink>
+                    <NavLink exact to='/' activeClassName='selected'><li>Home</li></NavLink>
                     {
-                        this.props.user.isAdmin == 'true' ? 
-                        <NavLink to='/portal' activeClassName='active' exact><li>Admin Portal</li></NavLink> : 
+                        this.props.user.isAdmin === 'true' ? 
+                        <NavLink to='/portal' activeClassName='selected'><li>Admin Portal</li></NavLink> : 
                         null
                     }
                     {
-                        !this.props.user.id ? 
+                        !this.props.user.username ? 
                         null : 
                             this.props.user.isAdmin === null ? 
-                            <NavLink to='/dashboard' activeClassName='active' exact>Dashboard</NavLink> :
+                            <NavLink to='/dashboard' activeClassName='selected'>Dashboard</NavLink> :
                             null
                     }
                     {
-                        this.props.user.id ? 
-                        <NavLink to='/' activeClassName='active' exact onClick={()=>this.props.logout()}><li>Logout</li></NavLink> :
-                        <NavLink to='/login' activeClassName='active' exact><li>Login</li></NavLink>
+                        this.props.user.username ? 
+                        <NavLink exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></NavLink> :
+                        <NavLink to='/login' activeClassName='selected'><li>Login</li></NavLink>
                         
                     }
                 </div>

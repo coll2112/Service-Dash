@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getUser, getRequests, getEmployees} from '../../ducks/reducer'
 import axios from 'axios';
-import Loader from 'react-loader-spinner'
 import EmployeeList from '../EmployeeList/EmployeeList'
+import './AdminPortal.scss'
 
 class AdminPortal extends Component{
     constructor(){
@@ -57,28 +57,38 @@ class AdminPortal extends Component{
         })
 
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
-            <div>
-                <button onClick={()=>this.toggleAddEmployee()}>Add Employee</button>
-                {
-                this.state.toggleBtn ? 
-                    <div>
-                        <form onSubmit={this.addEmployee}>
-                            <input placeholder='Employee FirstName' name='employeeFirstName' onChange={this.updateInput}/>
-                            <input placeholder='Employee LastName' name='employeeLastName' onChange={this.updateInput}/>
-                            <button>Submit</button>
-                        </form>
-                    </div> : null
-                }
-                {/* <button onClick={()=>this.props.history.push('/portal/requests')}>Check Service Requests</button> */}
-                <div>
-                    <h2>Pending Requests: {pendingRequests.length}</h2>
-                    <button onClick={()=>this.props.history.push('/portal/requests/')}>View Pending Requests</button>
-                    <h2>Approved Requests: {acceptedRequests.length}</h2>
-                    <button onClick={()=>this.props.history.push('/portal/requests/accepted')}>View Pending Requests</button>
-                    <h2>Denied Requests: {deniedRequests.length}</h2>
-                    <button onClick={()=>this.props.history.push('/portal/requests/denied')}>View Pending Requests</button>
+            <div className='adminPortalContainer'>
+                <div className='requestPortal'>
+                    <div className='requestsLength'>
+                        <h2>Pending: <span className='pendingNum'>{pendingRequests.length}</span></h2>
+                        <button onClick={()=>this.props.history.push('/portal/requests/')}>Pending Requests</button>
+                    </div>
+                    <div className='requestsLength'>
+                        <h2>Approved: <span className='approvedNum'>{acceptedRequests.length}</span></h2>
+                        <button onClick={()=>this.props.history.push('/portal/requests/accepted')}>Approved Requests</button>
+                    </div>
+                    <div className='requestsLength'>
+                        <h2>Denied: <span className='deniedNum'>{deniedRequests.length}</span></h2>
+                        <button onClick={()=>this.props.history.push('/portal/requests/denied')}>Denied Requests</button>
+                    </div>
                 </div>
-                <EmployeeList/>
+                <div className='employeeContainer'>
+                    <div className='formContainer'>
+                        <div className='employeeForm'>
+                            <div className='formHeader'>Add Employee</div>
+                            <form onSubmit={this.addEmployee}>
+                                <p>First Name</p>
+                                <input placeholder='Employee First Name' name='employeeFirstName' onChange={this.updateInput}/>
+                                <p>Last Name</p>
+                                <input placeholder='Employee Last Name' name='employeeLastName' onChange={this.updateInput}/>
+                                <button className='formSubmitBtn'>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div className='listContainer'>
+                        <EmployeeList/>
+                    </div>
+                </div>
             </div>
         ) : (
             <div>Admins Only</div>

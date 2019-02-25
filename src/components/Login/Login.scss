@@ -13,14 +13,13 @@
         margin-top: 5vh;
         border: none;
         font-size: 1.5em;
-        background: $secondaryColor;
+        background: $accentColor;
         transition: background-color .15s linear;
-        color: #F1FFFA;
+        color: $primaryColor;
         height: 10vh;
-        // width: 20%;
 
         &:hover{
-            background-color: #242424dd;
+            background-color: $accentHover;
         }
     }
 }

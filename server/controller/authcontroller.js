@@ -57,7 +57,13 @@ const register = async (req, res)=>{
             username: req.body.username,
             password: hash,
             admin: req.body.admin,
-            email: req.body.email
+            email: req.body.email,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip
         })
         req.session.user={username: response[0].username, id: response[0].id}
         transporter.sendMail(mailOptions)

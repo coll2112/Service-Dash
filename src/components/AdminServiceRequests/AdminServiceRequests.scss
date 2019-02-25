@@ -17,10 +17,10 @@
 
     .requestMap{
         padding: 35px 15px;
-        // border-top: 5px solid $accentColor;
-        // border-bottom: 5px solid $accentColor;
-        // border: 2px solid $secondaryColor;
-        border-radius: 2em;
+        // border-top: 3px solid $accentColor;
+        // border-bottom: 3px solid $accentColor;
+        // border: 2px solid $accentHover;
+        border-radius: 1em;
         margin: 25px 0;
         width: 40vw;
 
@@ -51,7 +51,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         position: sticky;
         top: 12vh;
         margin-top: 10vh;
@@ -60,9 +60,10 @@
         // border: 1px solid black;
 
         h3{
-            padding: 0;
+            padding-bottom: 5px;
             margin: 0;
-            text-decoration: underline;
+            // text-decoration: underline;
+            // border-bottom: 2px solid $accentColor;
         }
 
         button{
@@ -72,13 +73,13 @@
             font-size: 1em;
             color: $primaryColor;
             transition: background-color .2s linear;
-            border-radius: 99999em;
+            border-radius: 9999em;
             font-weight: 400;
             outline: none;
             width: 15vw;
 
             &:hover{
-                background-color: $secondaryColor;
+                background-color: $accentHover;
             }
         }
     }
@@ -97,10 +98,10 @@
         color: $primaryColor;
         transition: background-color .2s linear;
         border-radius: 9999em;
-        font-weight: 600;
+        font-weight: 700;
 
         &:hover{
-            background-color: $secondaryColor;
+            background-color: $accentHover;
         }
     }
 }

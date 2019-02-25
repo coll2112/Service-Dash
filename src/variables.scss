@@ -1,5 +1,15 @@
-$primaryColor: #F1FFFA;
+
+// Colors
+$primaryColor: #f1f1f1;
 $secondaryColor: #242424;
 $shadowColor: #242424;
 $accentColor: #F0544F;
+$accentHover: #cf3833;
 $highlightColor: #cabdb1;
+$darkBlue: #232A34;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Courgette|Nunito|Lobster+Two');
+$courgette: 'Courgette', cursive;
+$nunito: 'Nunito', sans-serif;
+$lobster: 'Lobster Two', cursive;

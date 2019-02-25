@@ -1,13 +1,17 @@
 @import '../../variables.scss';
 
 .details{
-    height: 60vh;
+    height: 70vh;
     color: $secondaryColor;
     display: flex;
     justify-content: space-around;
     align-items: center;
     // background-color: rgb(181, 200, 209);
     background-color: #f1f1f1;
+
+    p{
+        font-family: $nunito;
+    }
 
     &>div{
        width: 25vw;
