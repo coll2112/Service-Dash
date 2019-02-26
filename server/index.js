@@ -3,16 +3,19 @@ const express = require('express')
 const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
-const {getCustomers, 
-       addUserInfo, 
-       getCustomer, 
-       addEmployee, 
-       getAllRequests, 
-       submitApp, 
-       getAppStatus, 
-       deleteRequest,
-       getEmployees,
-       removeEmployee} =  require('./controller/controller')
+const {
+    getCustomers, 
+    addUserInfo, 
+    getCustomer, 
+    addEmployee, 
+    getAllRequests, 
+    submitApp, 
+    getAppStatus, 
+    deleteRequest,
+    getEmployees,
+    removeEmployee,
+    assignJob
+    } =  require('./controller/controller')
 const {login, 
        register, 
        logout, 
@@ -52,6 +55,7 @@ app.post('/api/addEmployee', addEmployee)
 app.post('/api/status/:id', statusRequest)
 app.delete('/api/remove/:id', deleteRequest)
 app.delete('/api/employee/remove/:id', removeEmployee)
+app.post('/api/job/add', assignJob)
 
 //User login, logout, session and register
 app.get('/api/user', userSession)

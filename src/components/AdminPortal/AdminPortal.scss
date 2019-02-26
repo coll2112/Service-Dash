@@ -106,6 +106,7 @@
     h2{
         font-weight: 400;
         text-align: center;
+        font-size: 1.7em;
     }
 
     button{
@@ -127,7 +128,7 @@
 
     span{
         font-weight: 600;
-        text-shadow: 0px 1px 1px $secondaryColor;
+        // text-shadow: -1px 1px 0px $secondaryColor, 1px -1px 0px $secondaryColor;
     }
 
     .pendingNum{

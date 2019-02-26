@@ -9,13 +9,14 @@ class Login extends Component{
         super();
         this.state={
             username:'',
-            password:''
+            password:'',
+            err: false
         }
     }
 
-    async componentDidMount(){
-        await this.props.getUser()
-    }
+    // async componentDidMount(){
+    //     await this.props.getUser()
+    // }
 
     updateInput=(e)=>{
         this.setState({[e.target.name]:e.target.value})
@@ -29,6 +30,7 @@ class Login extends Component{
             this.props.history.push('/')
         }).catch((err)=>{
             console.log(err)
+            this.setState({err: true})
         })
     }
 
@@ -42,6 +44,7 @@ class Login extends Component{
                     <p>Password:</p>
                     <input type='password' name='password' onChange={this.updateInput}/>
                 </div>
+                {this.state.err ? <p  style={{color:'red', textAlign: 'center'}}>Username or Password Incorrect</p> : null}
                 <button onClick={()=>this.submitLogin()}>Login</button>
             </div>
         )

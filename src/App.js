@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import routes from './routes'
 import Navbar from './components/Navbar/Navbar'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faGlobe, faPeopleCarry} from '@fortawesome/free-solid-svg-icons'
+import {faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faSortDown, faPeopleCarry} from '@fortawesome/free-solid-svg-icons'
 import {fab} from '@fortawesome/free-brands-svg-icons'
-library.add(fab, faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faGlobe, faPeopleCarry)
+library.add(fab, faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faSortDown, faPeopleCarry)
 
 class App extends Component {
   render() {

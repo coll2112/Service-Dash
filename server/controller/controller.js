@@ -138,6 +138,18 @@ getEmployees=(req,res)=>{
     })
 }
 
+assignJob=(req,res)=>{
+    const db = req.app.get('db')
+    const {app_id, employee_id} = req.body
+
+    db.addJob([app_id, employee_id]).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error: 'Failed to Assign Job'})
+    })
+}
+
 module.exports={
     getCustomers,
     getCustomer,
@@ -149,5 +161,6 @@ module.exports={
     deleteRequest,
     statusRequest,
     getEmployees,
-    removeEmployee
+    removeEmployee,
+    assignJob
 }

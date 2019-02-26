@@ -70,7 +70,7 @@ export default function reducer(state=initialState, action){
         case `${GET_USER}_REJECTED`:
         return{
             ...state,
-            err: true
+            // err: true
         }
         case `${LOGOUT}_FULFILLED`:
         return{

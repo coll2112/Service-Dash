@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 90vh;
+    background: $primaryColor;
 }
 
 .requestList{
@@ -14,6 +15,11 @@
     justify-content: center;
     // align-items: ;
     width: 100vw;
+    background: $primaryColor;
+
+    button{
+        cursor: pointer;
+    }
 
     .requestMap{
         padding: 35px 15px;
@@ -81,8 +87,21 @@
             &:hover{
                 background-color: $accentHover;
             }
+
+            &:focus{
+                background: $accentHover;
+            }
         }
     }
+}
+
+.arrow-down{
+    // padding: 0 12px;
+    // border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 105px;
 }
 
 .requestBtns{
@@ -97,11 +116,52 @@
         font-size: 1em;
         color: $primaryColor;
         transition: background-color .2s linear;
-        border-radius: 9999em;
+        // border-radius: 9999em;
         font-weight: 700;
+        outline: none;
 
         &:hover{
             background-color: $accentHover;
         }
+
+        // &:active{
+        //     background: $accentHover;
+        // }
     }
 }
+
+.dropdown{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.dropdown-content{
+    display: block;
+    position: absolute;
+    z-index: 1;
+    min-width: 130%;
+    max-height: 30vh;
+    margin-top: 40px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    overflow: scroll;
+    background: $accentColor;
+    // top: 75px;
+    outline: none;
+    transition: all 1s linear;
+
+    &:focus{
+        opacity: .8;
+    }
+}
+
+// .dropdown:focus .dropdown-content{
+//     display: block;
+//     // top: 15px;
+// }
+
+.employeeBtn{
+    width: 100%;
+}
+
