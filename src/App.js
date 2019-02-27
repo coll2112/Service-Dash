@@ -4,10 +4,42 @@ import React, { Component } from 'react';
 import routes from './routes'
 import Navbar from './components/Navbar/Navbar'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faSortDown, faPeopleCarry} from '@fortawesome/free-solid-svg-icons'
-import {fab} from '@fortawesome/free-brands-svg-icons'
-library.add(fab, faComments, faDollarSign, faTachometerAlt, faChevronCircleRight, faChevronCircleLeft, faSortDown, faPeopleCarry)
 
+//Font Awesome Brand Easy-Import Icons
+import {fab, faFacebookSquare, faInstagram, faTwitterSquare} from '@fortawesome/free-brands-svg-icons'
+
+//Font Awesome Imports
+import {
+  faComments, 
+  faDollarSign, 
+  faTachometerAlt, 
+  faChevronCircleRight, 
+  faChevronCircleLeft, 
+  faSortDown, 
+  faPeopleCarry,
+  faQuoteLeft,
+  faQuoteRight,
+  faCompass
+} from '@fortawesome/free-solid-svg-icons'
+
+//Font Awesome Library
+library.add(
+  fab, 
+  faComments, 
+  faDollarSign, 
+  faTachometerAlt, 
+  faChevronCircleRight, 
+  faChevronCircleLeft, 
+  faSortDown, 
+  faPeopleCarry,
+  faQuoteLeft,
+  faQuoteRight,
+  faFacebookSquare,
+  faInstagram,
+  faTwitterSquare,
+  faCompass
+  )
+  
 class App extends Component {
   render() {
     return (

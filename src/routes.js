@@ -6,6 +6,7 @@ import {Switch, Route} from 'react-router-dom'
 import Landing from './components/Landing/Landing'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+// import AccessDenied from './components/AccessDenied/AccessDenied'
 
 //User Side Routes
 import UserAccount from './components/UserAccount/UserAccount'
@@ -25,6 +26,7 @@ export default (
         <Route exact path='/' component={Landing}/>
         <Route path='/login' component={Login}/>
         <Route path='/register' component={Register}/>
+        {/* <Route path='/redirect' component={AccessDenied}/> */}
 
         {/* User Side Routes */}
         <Route exact path='/dashboard' component={Dashboard}/>

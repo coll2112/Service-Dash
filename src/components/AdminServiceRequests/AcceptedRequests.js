@@ -5,6 +5,7 @@ import {getRequests, getEmployees} from '../../ducks/reducer'
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Redirect from '../Redirect/Redirect'
 import './AdminServiceRequests.scss'
 
 
@@ -111,7 +112,7 @@ class AdminServiceRequests extends Component{
                 </div>
         ) : (
             <div>
-                Admins Only
+                <Redirect/>
             </div>
         )
     }

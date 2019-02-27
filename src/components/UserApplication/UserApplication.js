@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {getUser, getUserInfo, getRequests} from '../../ducks/reducer'
 import { connect } from 'react-redux';
 import UserInfoList from '../UserInfoList/UserInfoList'
+import Redirect from '../Redirect/Redirect'
 import axios from 'axios'
 
 class UserApplication extends Component{
@@ -70,7 +71,7 @@ class UserApplication extends Component{
             </div>
         ) : (
             <div>
-                <h2>Please log in</h2>
+                <Redirect/>
             </div>
         )
     }

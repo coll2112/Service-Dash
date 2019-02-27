@@ -3,9 +3,7 @@ import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
 import UserInfoList from '../UserInfoList/UserInfoList'
-import {Link} from 'react-router-dom'
-import Loader from 'react-loader-spinner'
-// import Dashboard from '../Dashboard/Dashboard'
+import Redirect from '../Redirect/Redirect'
 
 class UserAccount extends Component{
     constructor(){
@@ -71,7 +69,7 @@ class UserAccount extends Component{
             </div> 
         ) : (
             <div>
-                Please Log In
+                <Redirect/>
             </div>
         )
     }

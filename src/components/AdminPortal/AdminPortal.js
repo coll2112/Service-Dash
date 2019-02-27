@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getUser, getRequests, getEmployees} from '../../ducks/reducer'
 import axios from 'axios';
 import EmployeeList from '../EmployeeList/EmployeeList'
+import Redirect from '../Redirect/Redirect'
 import './AdminPortal.scss'
 
 class AdminPortal extends Component{
@@ -91,7 +92,7 @@ class AdminPortal extends Component{
                 </div>
             </div>
         ) : (
-            <div>Admins Only</div>
+            <Redirect/>
         )
     }
 }

@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.redirect-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    background: $primaryColor;
+    font-family: $nunito;
+    
+    h2{
+        font-size: 3em;
+        margin-bottom: 0px;
+    }
+}
+
+.compass-icon{
+    color: $accentColor;
+    animation: compass 6s infinite;
+}
+
+@keyframes compass{
+    0%{
+        transform: rotate(90deg);
+    }
+    25%{
+        transform: rotate(210deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    75%{
+        transform: rotate(35deg)
+    }
+    100%{
+        transform: rotate(90deg)
+    }
+}

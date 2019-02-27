@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
 import SiteInfo from '../SiteInfo/SiteInfo'
 import Testimonials from '../Testimonials/Testimonials'
+import Footer from '../Footer/Footer'
 import './Landing.scss'
 
 
@@ -27,6 +28,7 @@ class Landing extends Component{
                     </div>
                 <SiteInfo/>
                 <Testimonials/>
+                <Footer/>
             </div>
         )
     }

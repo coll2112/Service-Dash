@@ -8,11 +8,11 @@
     justify-content: space-around;
     align-items: center;
     color: $primaryColor;
-    // opacity: 0.9;
-    // border-bottom: 0.5vh solid $accentColor;
     position: sticky;
     top:0;
     z-index: 2;
+    // opacity: 0.9;
+    // border-bottom: 0.5vh solid $accentColor;
         
         a{
             color: $primaryColor;
@@ -25,8 +25,8 @@
         align-items: center;
         justify-content: space-between;
         width: 145px;
-        // font-family: $courgette;
         font-family: $lobster;
+        // font-family: $courgette;
         // border: 1px solid white;
     }
 }
@@ -35,10 +35,26 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
         a{
             margin: 5px 15px;
             font-family: $nunito;
+
+            &::after{
+                content: "";
+                display: block;
+                width: 0;
+                height: 3px;
+                margin-top: 2px;
+                background: $accentColor;
+                transition: width .3s;
+            }
+
+            &:hover::after{
+                width: 100%;
+                transition: width .3s;
+            }
 
             // &:focus{
             //     color: $highlightColor;
@@ -59,20 +75,6 @@
             //     transition: width .3s;
             // }
 
-            &::after{
-                content: "";
-                display: block;
-                width: 0;
-                height: 3px;
-                margin-top: 2px;
-                background: $accentColor;
-                transition: width .3s;
-            }
-
-            &:hover::after{
-                width: 100%;
-                transition: width .3s;
-            }
 
             // &.selected{
             //     // content: "";
@@ -85,4 +87,25 @@
             // }
         }
 
+        // button{
+        //     border: none;
+        //     font-size: .8em;
+        //     color: $primaryColor;
+        //     background: $accentColor;
+        //     padding: 5px 10px;
+        //     outline: none;
+        //     border-radius: 5px;
+        //     // box-shadow: 0px 5px 1px $accentHover, 0 2px 1px $accentHover;
+        //     // box-shadow: 0px 6px 0px $accentHover;
+        //     cursor: pointer;
+        //     text-decoration: none;
+        //     outline: none;
+        //     box-shadow: 0 4px #c24440;
+
+        //     &:active{
+        //         // background-color: ;
+        //         box-shadow: 0 2px $accentHover;
+        //         transform: translateY(2px);
+        //     }
+        // }
 }

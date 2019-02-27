@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {getUser, getUserInfo} from '../../ducks/reducer'
 import {Link, NavLink} from 'react-router-dom'
+import Redirect from '../Redirect/Redirect'
 
 class Dashboard extends Component{
     componentDidMount(){
@@ -17,7 +18,7 @@ class Dashboard extends Component{
             </div>
         ) : (
             <div>
-                <h2>Please Sign In</h2>
+                <Redirect/>
             </div>
         )
     }

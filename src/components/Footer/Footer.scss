@@ -1,0 +1,48 @@
+@import '../../variables.scss';
+
+.footer-container{
+    width: 100vw;
+    height: 15vh;
+    padding: 10px 0;
+    background: $darkBlue;
+    color: $primaryColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    // padding: 0 35px;
+
+    .copyright{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        p{
+            // padding-right: 5px;
+            font-size: .8em;
+        }
+
+        .copyright-icon{
+            // color: $accentColor;
+        }
+    }
+
+    .social-icons{
+        display: flex;
+        justify-content: space-between;
+        width: 8vw;
+
+        span{
+            &:hover{
+                color: $accentColor;
+            }
+        }
+    }
+}
