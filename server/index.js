@@ -3,6 +3,7 @@ const express = require('express')
 const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
+const stripe = require('stripe')(process.env.STRIPE_SECRET)
 const {
     getCustomers, 
     addUserInfo, 
@@ -33,13 +34,21 @@ app.use(session({
     }
 }))
 
-
-
 massive(process.env.CONNECTION_STRING).then(db=>{
     app.set('db', db)
     console.log('Database Connected')
 })
 
+async function payMe(){
+    let charge = await stripe.charges.create({
+        amount: 4500,
+        currency: 'usd',
+        source: 'tok_visa',
+    })
+}
+
+// Pay with Stripe
+app.post('/api/pay', payMe)
 
 //user
 app.get('/api/customers', getCustomers)

@@ -12,6 +12,7 @@ import Register from './components/Register/Register'
 import UserAccount from './components/UserAccount/UserAccount'
 import Dashboard from './components/Dashboard/Dashboard'
 import UserApplication from './components/UserApplication/UserApplication'
+import SentApplication from './components/SentApplications/SentApplication'
 
 //Admin Side Routes
 import AdminPortal from './components/AdminPortal/AdminPortal'
@@ -32,6 +33,7 @@ export default (
         <Route exact path='/dashboard' component={Dashboard}/>
         <Route exact path='/dashboard/account' component={UserAccount}/>
         <Route exact path='/dashboard/application' component={UserApplication}/>
+        <Route exact path='/dashboard/application/submitted' component={SentApplication}/>
 
         {/* Admin Side Routes */}
         <Route exact path='/portal' component={AdminPortal}/>

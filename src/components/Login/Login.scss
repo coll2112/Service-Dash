@@ -1,13 +1,18 @@
 @import '../../variables.scss';
 
+.login-page-container{
+    display: flex;
+    align-items: center;
+    height: 90vh;
+}
+
 .login-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-top: 10vh;
-    width: 30vw;
-    // border: 1px solid black;
+    justify-content: center;
+    width: 40vw;
     margin: auto;
+    // border: 1px solid black;
 
     button{
         margin-top: 5vh;

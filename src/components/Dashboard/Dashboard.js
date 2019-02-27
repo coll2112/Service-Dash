@@ -1,24 +1,42 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {getUser, getUserInfo} from '../../ducks/reducer'
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import Redirect from '../Redirect/Redirect'
+import UserInfoList from '../UserInfoList/UserInfoList'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import './Dashboard.scss'
 
 class Dashboard extends Component{
-    componentDidMount(){
-        this.props.getUser();
+    async componentDidMount(){
+        await this.props.getUser();
+        this.props.getUserInfo(this.props.user.id);
     }
 
     render(){
         return this.props.user.username ? (
+            this.props.userInfo[0] ? 
+            <div className='dashboard-container'>
+                <p className='title-head'>Hi {this.props.userInfo[0].firstname}</p>
+                <div className='dashboard-content'>
+                    <div className='ua-box'>
+                        <h3>Account Information</h3>
+                        <UserInfoList/>
+                        <NavLink to='/dashboard/account'><button>Edit Your Information</button></NavLink>
+                    </div>
+                    <div className='dashboard-btns '>
+                        <button onClick={()=>this.props.history.push('/dashboard/application')}>Submit Service Application <FontAwesomeIcon icon='angle-right' size='1x'/></button>
+                        <button onClick={()=>this.props.history.push('/dashboard/application/submitted')}>Check Status of Application <FontAwesomeIcon icon='angle-right' size='1x'/></button>
+                    </div>
+                </div> 
+            </div>
+            :
             <div>
-                <p>Welcome {this.props.user.username}</p>
-                <NavLink to='/dashboard/account'><button>Account Information</button></NavLink>
-                <NavLink to='/dashboard/application'><button>Service Application</button></NavLink>
+                Loading...
             </div>
         ) : (
             <div>
-                <Redirect/>
+                {/* <Redirect/> */}
             </div>
         )
     }

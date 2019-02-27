@@ -37,15 +37,17 @@ class Login extends Component{
     render(){
         console.log(this.props.userInfo[0])
         return(
-            <div className='login-container'>
-                <div className='inputs'>
-                    <p>Username:</p>
-                    <input type='text' name='username' onChange={this.updateInput}/>
-                    <p>Password:</p>
-                    <input type='password' name='password' onChange={this.updateInput}/>
+            <div className='login-page-container'>
+                <div className='login-container'>
+                    <div className='inputs'>
+                        <p>Username:</p>
+                        <input type='text' name='username' onChange={this.updateInput}/>
+                        <p>Password:</p>
+                        <input type='password' name='password' onChange={this.updateInput}/>
+                    </div>
+                    {this.state.err ? <p  style={{color:'red', textAlign: 'center'}}>Username or Password Incorrect</p> : null}
+                    <button onClick={()=>this.submitLogin()}>Login</button>
                 </div>
-                {this.state.err ? <p  style={{color:'red', textAlign: 'center'}}>Username or Password Incorrect</p> : null}
-                <button onClick={()=>this.submitLogin()}>Login</button>
             </div>
         )
     }

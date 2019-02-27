@@ -14,19 +14,15 @@ class AccessDenied extends Component{
       
 
     componentDidMount(){
-        
-        // for(let i=5;i>0;i--){
-        //     this.setState({seconds:this.state.seconds-1})
-        //     // setTimeout(()=>{
-        //     // }, 1000)
-        // }
-
         setTimeout(() => {
             this.setState({seconds:this.state.seconds-1})
             this.props.history.push('/login')
-        }, 5000);
-
+        }, 3000);
     }
+
+    // componentWillUnmount(){
+
+    // }
 
     render(){
         return(

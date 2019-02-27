@@ -52,7 +52,7 @@ class UserAccount extends Component{
                 <p>User Info Here</p>
                 <form onSubmit={this.submitInfo} className='infoForm'>
                     <p>First Name:</p>
-                    <input type='text' name='firstname' required onChange={this.updateInput}/>
+                    <input type='text' name='firstname' value={this.props.userInfo[0].firstname} required onChange={this.updateInput}/>
                     <p>Last Name:</p>
                     <input type='text' name='lastname' required onChange={this.updateInput}/>
                     <p>Address:</p>
@@ -65,11 +65,11 @@ class UserAccount extends Component{
                     <input type='number' name='zip' required onChange={this.updateInput}/>
                     <button>Submit</button>
                 </form>
-                <UserInfoList/>
+                {/* <UserInfoList/> */}
             </div> 
         ) : (
             <div>
-                <Redirect/>
+                {/* <Redirect/> */}
             </div>
         )
     }

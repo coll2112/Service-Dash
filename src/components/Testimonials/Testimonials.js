@@ -36,7 +36,7 @@ class Testimonials extends Component{
                             slidesToShow={1}
                             autoplay={true}
                             frameOverflow={false}
-                            autoplayInterval={7500}
+                            autoplayInterval={5000}
                             wrapAround={true}
                             // transitionMode={'zoom'}
                             width={'80vw'}
