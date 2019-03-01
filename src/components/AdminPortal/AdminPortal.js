@@ -61,16 +61,16 @@ class AdminPortal extends Component{
             <div className='adminPortalContainer'>
                 <div className='requestPortal'>
                     <div className='requestsLength'>
-                        <h2>Pending: <span className='pendingNum'>{pendingRequests.length}</span></h2>
-                        <button onClick={()=>this.props.history.push('/portal/requests/')}>Pending Requests</button>
+                        {/* <h2>Pending: <span className='pendingNum'>{pendingRequests.length}</span></h2> */}
+                        <button onClick={()=>this.props.history.push('/portal/requests/')}>Pending Requests: {pendingRequests.length}</button>
                     </div>
                     <div className='requestsLength'>
-                        <h2>Approved: <span className='approvedNum'>{acceptedRequests.length}</span></h2>
-                        <button onClick={()=>this.props.history.push('/portal/requests/accepted')}>Approved Requests</button>
+                        {/* <h2>Approved: <span className='approvedNum'>{acceptedRequests.length}</span></h2> */}
+                        <button onClick={()=>this.props.history.push('/portal/requests/accepted')}>Approved Requests: {acceptedRequests.length}</button>
                     </div>
                     <div className='requestsLength'>
-                        <h2>Denied: <span className='deniedNum'>{deniedRequests.length}</span></h2>
-                        <button onClick={()=>this.props.history.push('/portal/requests/denied')}>Denied Requests</button>
+                        {/* <h2>Denied: <span className='deniedNum'>{deniedRequests.length}</span></h2> */}
+                        <button onClick={()=>this.props.history.push('/portal/requests/denied')}>Denied Requests: {deniedRequests.length}</button>
                     </div>
                 </div>
                 <div className='employeeContainer'>

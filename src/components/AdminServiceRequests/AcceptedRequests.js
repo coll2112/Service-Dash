@@ -80,7 +80,7 @@ class AdminServiceRequests extends Component{
                                 <span className='arrow-down'>Assign Job <FontAwesomeIcon icon='sort-down' size='1x' style={{color:'#f1f1f1'}}/></span>
                             </button>
                             {this.state.toggle && this.state.selected === e.app_id ? 
-                                <div className='dropdown-content'>
+                                <div className='dropdown-content animated flipInX'>
                                     {employeeMap}
                                 </div> : 
                                 null}
@@ -105,9 +105,10 @@ class AdminServiceRequests extends Component{
                         <NavLink to='/portal/requests'><button>Pending Requests</button></NavLink>
                         <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
-                    <div>
+                    <div className='mapContainer'>
                         <h2 className='title'>Accepted Requests</h2>
-                        {acceptedMap}
+                        {!acceptedRequests[0] ? <h2>There are currently no accepted requests</h2> : acceptedMap}
+                        {/* {acceptedMap} */}
                     </div>
                 </div>
         ) : (

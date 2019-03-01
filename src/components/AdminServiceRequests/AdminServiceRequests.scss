@@ -23,9 +23,10 @@
 
     .requestMap{
         padding: 35px 15px;
-        // border-top: 3px solid $accentColor;
-        // border-bottom: 3px solid $accentColor;
-        // border: 2px solid $accentHover;
+        // border-top: 3px solid $darkBlue;
+        // border-bottom: 3px solid $darkBlue;
+        // // border: 2px solid $accentHover;
+        // border: none;
         border-radius: 1em;
         margin: 25px 0;
         width: 40vw;
@@ -93,6 +94,10 @@
             }
         }
     }
+
+    .mapContainer{
+        min-height: 90vh;
+    }
 }
 
 .arrow-down{
@@ -149,11 +154,7 @@
     background: $accentColor;
     // top: 75px;
     outline: none;
-    transition: all 1s linear;
-
-    &:focus{
-        opacity: .8;
-    }
+    animation-duration: .5s;
 }
 
 // .dropdown:focus .dropdown-content{
@@ -165,3 +166,8 @@
     width: 100%;
 }
 
+@keyframes rotateArrow{
+    to{
+        transform: rotate(180deg)
+    }
+}

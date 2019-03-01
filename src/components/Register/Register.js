@@ -48,7 +48,7 @@ class Register extends Component{
         console.log(this.state.email)
         return(
             <div className='login-page-container'>
-                <div className='login-container'>
+                <div className='login-container fadeInDownBig animated'>
                 {this.state.toggleForm ? 
                     <div className='inputs'>
                         <p>Username:</p>

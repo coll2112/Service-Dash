@@ -1,3 +1,59 @@
+@import '../../variables.scss';
+
 .subApp-container{
-    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    min-height: 90vh;
+    background: $primaryColor;
+}
+
+.sentMap{
+    padding: 35px 15px;
+    border-left: 25px solid $accentColor;
+    border-right: 2px solid $accentColor;
+    // border: 2px solid $accentHover;
+    border-radius: 1em;
+    margin: 25px 0;
+    width: 40vw;
+    box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.233), -3px 0px 3px rgba(0, 0, 0, 0.233);
+
+    p{
+        border: 1px solid $accentColor;
+        padding: 15px 20px;
+    }
+
+    .appStatus{
+        text-align: center;
+    }
+
+    h2{
+        font-size: 2em;
+
+        &::after{
+            content: '';
+            border-right: 2px solid $accentColor;
+            border-bottom: 2px solid $accentColor;
+            padding: 5px 50px;
+            margin-left: -90px;
+            border-radius: 4px;
+        }
+    }
+
+    .stripe-checkout{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button{
+            // width: 30%;
+            // height: 30px;
+        }
+
+        h4{
+            font-weight: 400;
+            padding-left: 100px
+        }
+    }
 }

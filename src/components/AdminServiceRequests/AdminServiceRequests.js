@@ -61,22 +61,6 @@ class AdminServiceRequests extends Component{
     }
 
     render(){
-        const requestMap = this.props.serviceRequests.map((e,i)=>{
-            return(
-                <div key={i} className='requestMap'>
-                    <h2>{e.firstname} {e.lastname}</h2>
-                    <h3 className='userComments'>Request:</h3>
-                    <p>{e.comment}</p>
-                    <h3 className='appStatus'>Application Status: {e.status}</h3>
-                    <div className='requestBtns'>
-                        <button onClick={()=>this.acceptRequest(e.app_id)}>Accept</button>
-                        <button onClick={()=>this.denyRequest(e.app_id)}>Deny</button>
-                        <button onClick={()=>this.deleteRequest(e.app_id)}>Delete</button>
-                    </div>
-                </div>
-            )
-        })
-
         const pendingRequests = this.props.serviceRequests.filter((e)=>{
             return e.status === 'Pending'
         })
@@ -111,9 +95,9 @@ class AdminServiceRequests extends Component{
                         <button onClick={()=>this.checkPending()}>Pending Requests</button>
                         <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
-                    <div>
+                    <div className='mapContainer'>
                         <h2>Pending Requests</h2>
-                        {!this.props.pendingRequests > 1 ? <div>There are currently no pending requests</div> : pendingMap}
+                        {!pendingRequests[0] ? <h2>There are currently no pending requests</h2> : pendingMap}
                     </div>
                 </div>
         ) : (

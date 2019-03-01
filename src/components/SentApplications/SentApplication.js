@@ -11,9 +11,9 @@ import axios from "axios";
 
 class SentApplication extends Component{
 
-    componentDidMount(){
-        this.props.getUser();
-        this.props.getUserInfo();
+    async componentDidMount(){
+        await this.props.getUser();
+        this.props.getUserInfo(this.props.user.id);
         this.props.getRequests();
         this.props.getEmployees();
     }
@@ -33,20 +33,37 @@ class SentApplication extends Component{
     //   }
 
     successPayment=()=>{
-        toast('Wow so easy!')
+        toast.success('Payment Successful')
     }
 
-    onToken = token =>{
-        axios.post('/api/pay',
+    onToken = (token) =>{
+        const {id} = this.props.getUser
+        axios.post(`/api/pay/${id}`,
         {
             token: token,
-            amount: '4500'
+            amount: '4500',
+            isPaid: 'True'
         })
-        .then(this.successPayment)
+        .then(this.payment())
         .catch(console.log);
     }
 
+    payment=()=>{
+        const {app_id} = this.props.serviceRequests
+        axios.put(`/api/pay/status`, {
+            app_id, 
+            is_paid:'true'
+        }).then(()=>{
+            this.successPayment()
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 
+    // payment=()=>{
+    //     const {app_id} = this.props.serviceRequests
+    //     axios.put(`/api/pay/status`, {})
+    // }
 
     render(){
         const approvedApp = this.props.serviceRequests.filter((e)=>{
@@ -57,13 +74,13 @@ class SentApplication extends Component{
             // var employeeMap = this.props.employees.map((f,j)=>{
             //     return <p>{f.firstname} {f.lastname}</p> 
             // })
+
             return(
-                <div key={i} className='app-container'>
+                <div key={i} className='sentMap'>
                     {/* <h2>{e.firstname} {e.lastname}</h2> */}
                     <h3 className='userComments'>Request:</h3>
                     <p>{e.comment}</p>
                     <h3 className='appStatus'>Application Status: {e.status}</h3>
-                    <h3>Service Fee: $45</h3>
                     <div className='stripe-checkout'>
                         <StripeCheckout
                             amount="4500"
@@ -76,6 +93,7 @@ class SentApplication extends Component{
                             label="Pay Service Fee"
                             // zipCode
                         />
+                        <h4>Service Fee: $45</h4>
                         <ToastContainer/>
                     </div>
                 </div>

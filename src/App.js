@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import routes from './routes'
 import Navbar from './components/Navbar/Navbar'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 //Font Awesome Brand Easy-Import Icons
@@ -50,7 +52,7 @@ class App extends Component {
         <div className='main'>
           {routes}
         </div>
-        
+        <ToastContainer autoClose={3000}/>
       </div> 
     );
   }

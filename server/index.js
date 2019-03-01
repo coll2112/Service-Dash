@@ -15,7 +15,8 @@ const {
     deleteRequest,
     getEmployees,
     removeEmployee,
-    assignJob
+    assignJob,
+    payStatus
     } =  require('./controller/controller')
 const {login, 
        register, 
@@ -39,7 +40,7 @@ massive(process.env.CONNECTION_STRING).then(db=>{
     console.log('Database Connected')
 })
 
-async function payMe(){
+async function payment(){
     let charge = await stripe.charges.create({
         amount: 4500,
         currency: 'usd',
@@ -48,7 +49,8 @@ async function payMe(){
 }
 
 // Pay with Stripe
-app.post('/api/pay', payMe)
+app.post('/api/pay', payment)
+app.put('/api/pay/status', payStatus)
 
 //user
 app.get('/api/customers', getCustomers)

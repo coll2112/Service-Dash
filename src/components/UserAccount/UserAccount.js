@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo} from '../../ducks/reducer'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
-import UserInfoList from '../UserInfoList/UserInfoList'
 import Redirect from '../Redirect/Redirect'
+import './UserAccount.scss'
 
 class UserAccount extends Component{
     constructor(){
@@ -33,6 +35,8 @@ class UserAccount extends Component{
         e.preventDefault();
         axios.put(`/api/editUserInfo/${id}`, {firstname, lastname, address, city, state, zip}).then(()=>{
             this.props.getUserInfo(this.props.user.id)
+            this.props.history.push('/dashboard')
+            toast.success('Account Info Updated')
         }).catch(err=>{
             console.log(err)
         })
@@ -47,12 +51,11 @@ class UserAccount extends Component{
         // console.log(this.props.user)
         
         return this.props.user.username && this.props.userInfo[0] ? (
-             <div>
-                <p>Hello, {this.props.userInfo[0].firstname}</p>
-                <p>User Info Here</p>
-                <form onSubmit={this.submitInfo} className='infoForm'>
+             <div className='account-container'>
+                <form onSubmit={this.submitInfo} className='infoForm fadeInDownBig animated'>
+                    <h2>Update Your Account</h2>
                     <p>First Name:</p>
-                    <input type='text' name='firstname' value={this.props.userInfo[0].firstname} required onChange={this.updateInput}/>
+                    <input type='text' name='firstname' required  required onChange={this.updateInput}/>
                     <p>Last Name:</p>
                     <input type='text' name='lastname' required onChange={this.updateInput}/>
                     <p>Address:</p>
@@ -63,9 +66,8 @@ class UserAccount extends Component{
                     <input type='text' name='state' required onChange={this.updateInput}/>
                     <p>ZipCode:</p>
                     <input type='number' name='zip' required onChange={this.updateInput}/>
-                    <button>Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
-                {/* <UserInfoList/> */}
             </div> 
         ) : (
             <div>

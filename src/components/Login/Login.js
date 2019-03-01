@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {loginChange, getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
 import './Login.scss'
@@ -14,15 +15,11 @@ class Login extends Component{
         }
     }
 
-    // async componentDidMount(){
-    //     await this.props.getUser()
-    // }
-
     updateInput=(e)=>{
         this.setState({[e.target.name]:e.target.value})
     }
 
-   submitLogin=()=>{
+    submitLogin=()=>{
         const {username, password} = this.state
         // const {login} = this.props
         axios.post('api/login', {username, password}).then(()=>{
@@ -35,10 +32,10 @@ class Login extends Component{
     }
 
     render(){
-        console.log(this.props.userInfo[0])
+        console.log(this.props.user)
         return(
             <div className='login-page-container'>
-                <div className='login-container'>
+                <div className='login-container animated fadeInDownBig'>
                     <div className='inputs'>
                         <p>Username:</p>
                         <input type='text' name='username' onChange={this.updateInput}/>

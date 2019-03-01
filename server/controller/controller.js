@@ -150,6 +150,18 @@ assignJob=(req,res)=>{
     })
 }
 
+payStatus=(req,res)=>{
+    const db = req.app.get('db')
+    const {app_id, is_paid} = req.body
+
+    db.setPay([app_id, is_paid]).then(response=>{
+        res.status(200).send(response)
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).send({error:'Failed to Update Payment Status'})
+    })
+}
+
 module.exports={
     getCustomers,
     getCustomer,
@@ -162,5 +174,6 @@ module.exports={
     statusRequest,
     getEmployees,
     removeEmployee,
-    assignJob
+    assignJob,
+    payStatus
 }

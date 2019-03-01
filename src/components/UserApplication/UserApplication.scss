@@ -1,0 +1,73 @@
+@import '../../variables.scss';
+
+.application-container{
+    // width: 50vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $primaryColor;
+}
+
+.app-content{
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // border: 1px solid black;
+
+    h3{
+        font-size: 1.8em;
+        text-align: center;
+        color: $accentColor;
+    }
+}
+
+.userInfo{
+
+    &:nth-child(2){
+        text-align: center;
+    }
+
+    h4{
+        font-size: 1.2em;
+        color: $accentColor;
+    }
+}
+
+.appForm{
+    display: flex;
+    flex-direction: column;
+    // align-content: stretch;
+    justify-content: center;
+    align-items: stretch;
+
+    textarea{
+        resize: none;
+        // width: 100%;
+        height: 15vh;
+        display: block;
+        border-radius: 0.2em;
+        border: 1px solid $accentColor;
+        outline: none;
+        font-size: 1.3em;
+    }
+
+    button{
+        margin-top: 10px;
+        border: none;
+        font-size: 1.1em;
+        background: $accentColor;
+        transition: background-color .15s linear;
+        color: $primaryColor;
+        height: 10vh;
+        border-radius: 0.5em;
+        display: block;
+        outline: none;
+
+        &:hover{
+            background-color: $accentHover;
+        }
+    }
+}

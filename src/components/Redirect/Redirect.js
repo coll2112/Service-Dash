@@ -17,7 +17,7 @@ class AccessDenied extends Component{
         setTimeout(() => {
             this.setState({seconds:this.state.seconds-1})
             this.props.history.push('/login')
-        }, 3000);
+        }, 2000);
     }
 
     // componentWillUnmount(){

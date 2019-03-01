@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import UserInfoList from '../UserInfoList/UserInfoList'
 import Redirect from '../Redirect/Redirect'
 import axios from 'axios'
+import './UserApplication.scss'
 
 class UserApplication extends Component{
     constructor(){
@@ -49,25 +50,23 @@ class UserApplication extends Component{
     render(){
         // console.log(this.state.appStatus)
         return this.props.user.username ? (
-            <div>
-                <h3>Submit Service Request</h3>
-                <div>
-                    <h3>Your Information</h3>
-                    <p>
-                        Your information and comments below will be submitted for approval. Please check and make sure
-                        the information below is correct before submitting.
-                    </p>
-                    <UserInfoList/>
+            <div className='application-container'>
+                <div className='app-content'>
+                    <h3>Submit Service Request</h3>
+                    <div className='userInfo'>
+                        <p>
+                            Your information and comments below will be submitted for approval. Please check and make sure
+                            the information below is correct before submitting.
+                        </p>
+                        <h4>Your Information</h4>
+                        <UserInfoList/>
+                    </div>
+                    <form onSubmit={this.submitApplication} className='appForm'>
+                        <p>Please fill out the comment box below and let us know what we can assist with.</p>
+                        <textarea rows='5' name='comment' onChange={this.updateInput}/>
+                        <button>Submit Application</button>
+                    </form>
                 </div>
-                <form onSubmit={this.submitApplication}>
-                    <label></label>
-                    <p>Please fill out the comment box below and let us know what we can assist with.</p>
-                    <textarea rows='5' name='comment' onChange={this.updateInput}/>
-                    <button>Submit Application</button>
-                </form>
-                {/* <div>
-                    <h3>Status of Application: {this.state.appStatus.status}</h3>
-                </div> */}
             </div>
         ) : (
             <div>

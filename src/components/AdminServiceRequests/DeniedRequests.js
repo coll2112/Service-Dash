@@ -8,8 +8,8 @@ import './AdminServiceRequests.scss'
 
 class AdminServiceRequests extends Component{
 
-    componentDidMount(){
-        this.props.getRequests()
+    async componentDidMount(){
+        await this.props.getRequests()
     }
 
     deleteRequest=(id)=>{
@@ -60,6 +60,8 @@ class AdminServiceRequests extends Component{
             )
         })
 
+        console.log(deniedRequests)
+
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">
@@ -73,9 +75,9 @@ class AdminServiceRequests extends Component{
                         <NavLink to='/portal/requests'><button>Pending Requests</button></NavLink>
                         <NavLink to='/portal/requests/denied'><button>Denied Requests</button></NavLink>
                     </div>
-                    <div>
+                    <div className='mapContainer'>
                         <h2>Denied Requests</h2>
-                        {deniedMap}
+                        {!deniedRequests[0] ? <h2>There are currently no denied requests</h2> : deniedMap}
                     </div>
                 </div>
         ) : (
