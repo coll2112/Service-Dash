@@ -29,7 +29,7 @@
         // border: none;
         border-radius: 1em;
         margin: 25px 0;
-        width: 40vw;
+        width: 50vw;
 
         p{
             border: 1px solid $accentColor;
@@ -101,8 +101,6 @@
 }
 
 .arrow-down{
-    // padding: 0 12px;
-    // border: 1px solid white;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -121,7 +119,6 @@
         font-size: 1em;
         color: $primaryColor;
         transition: background-color .2s linear;
-        // border-radius: 9999em;
         font-weight: 700;
         outline: none;
 
@@ -166,8 +163,130 @@
     width: 100%;
 }
 
-@keyframes rotateArrow{
-    to{
-        transform: rotate(180deg)
+@media(max-width: 768px){
+
+    .requestList{
+        flex-direction: row;
+        justify-content: center;
+
+        .requestMap{
+            width: 65vw;
+        }
+
+        .filterBtns{
+            top: 0vh !important;
+            margin-top: 1vh !important;
+    
+            h3{
+                padding-bottom: 0px;
+            }
+    
+            button{
+                border-radius: 0;
+                width: 20vw;
+            }
+        }
+    }
+}
+
+@media(max-width: 525px){
+    .requestList{
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: center;
+        width: 100vw;
+    
+        .requestMap{
+            padding: 0px 0px;
+            margin: -20px 0;
+            width: 90vw;
+    
+            p{
+                border: 1px solid $accentColor;
+                padding: 15px 20px;
+            }
+    
+            .appStatus{
+                text-align: center;
+            }
+    
+            h2{
+                font-size: em;
+                text-align: center;
+            }
+        }
+    
+        .filterBtns{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            position: initial;
+            margin:auto;
+            margin-top: 3vh !important;
+    
+            h3{
+                padding-bottom: 5px;
+                margin: 0;
+                // text-decoration: underline;
+                // border-bottom: 2px solid $accentColor;
+            }
+    
+            button{
+                border: none;
+                background: $accentColor;
+                padding: 15px 0px;
+                font-size: 1em;
+                color: $primaryColor;
+                transition: background-color .2s linear;
+                border-radius: 9999em;
+                font-weight: 400;
+                outline: none;
+                width: 95vw;
+    
+                &:hover{
+                    background-color: $accentHover;
+                }
+    
+                &:focus{
+                    background: $accentHover;
+                }
+            }
+        }
+    
+        .mapContainer{
+            min-height: 90vh;
+
+            h2{
+                text-align: center;
+                margin-top: 0;
+                padding-top: 50px
+            }
+        }
+    }
+    
+    .arrow-down{
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        width: 100%;
+
+        .icon{
+            padding-left: 10px !important;
+        }
+    }
+    
+    .requestBtns{
+        display: flex;
+        flex-direction: column;
+        padding-top: 0px;
+        width: 100%;
+    
+        button{
+            padding: 15px 50px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
     }
 }

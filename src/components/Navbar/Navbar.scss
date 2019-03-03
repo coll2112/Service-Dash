@@ -110,6 +110,7 @@
         font-size: 1.1em;
         z-index: 1;
         animation-duration: .4s;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.616);
         
         a{  
             padding: 20px 0;
@@ -117,6 +118,7 @@
             color:$primaryColor;
             // border-top: 2px solid $darkBlue;
             background: $accentColor;
+            text-decoration: none;
 
                 &:nth-last-child(1){
                      // border-bottom: 2px solid $darkBlue;
@@ -126,7 +128,7 @@
     }
 }
 
-@media(max-width:375px){
+@media(max-width:525px){
     .mobile-links{
         font-size: 1.0em;
     }

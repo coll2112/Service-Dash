@@ -54,7 +54,7 @@ class App extends Component {
         <div className='main'>
           {routes}
         </div>
-        <ToastContainer autoClose={3000}/>
+        <ToastContainer autoClose={3000} position="top-center"/>
       </div> 
     );
   }

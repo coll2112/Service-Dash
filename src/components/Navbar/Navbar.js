@@ -35,37 +35,45 @@ class Navbar extends Component{
         this.closeNav();
     }
 
+    handleClick() {
+        this.setState({
+            open: !this.state.open
+        });
+    }    
+
     render(){
         // console.log(this.state.isToggled)
         return(
-            <div className='navbar'>
-                <div className='logo'>
-                    <FontAwesomeIcon icon='people-carry' size='2x'/>
-                    <h1>Push.Co</h1>
-                </div>
-                <div className='links'>
-                    <Link exact to='/' activeClassName='selected'><li>Home</li></Link>
-                    {
-                        this.props.user.isAdmin === 'true' ? 
-                        <Link to='/portal' activeClassName='selected'><li>Admin Portal</li></Link> : 
-                        null
-                    }
-                    {
-                        !this.props.user.username ? 
-                        null : 
-                            this.props.user.isAdmin === null ? 
-                            <Link to='/dashboard' activeClassName='selected'>Dashboard</Link> :
+            <div>
+                <div className='navbar'>
+                    <div className='logo'>
+                        <FontAwesomeIcon icon='people-carry' size='2x'/>
+                        <h1>Push.Co</h1>
+                    </div>
+                    <div className='links'>
+                        <Link exact to='/' activeClassName='selected'><li>Home</li></Link>
+                        {
+                            this.props.user.isAdmin === 'true' ? 
+                            <Link to='/portal' activeClassName='selected'><li>Admin Portal</li></Link> : 
                             null
-                    }
-                    {
-                        this.props.user.username ? 
-                        <Link exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></Link> :
-                        <Link to='/login' activeClassName='selected'><li>Login</li></Link>
-                        
-                    }
-                </div>
-                <div className='mobileNav'>
-                    <FontAwesomeIcon icon='bars' size='2x' onClick={()=>this.toggleMobileNav()}/>
+                        }
+                        {
+                            !this.props.user.username ? 
+                            null : 
+                                this.props.user.isAdmin === null ? 
+                                <Link to='/dashboard' activeClassName='selected'>Dashboard</Link> :
+                                null
+                        }
+                        {
+                            this.props.user.username ? 
+                            <Link exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></Link> :
+                            <Link to='/login' activeClassName='selected'><li>Login</li></Link>
+                            
+                        }
+                    </div>
+                    <div className='mobileNav'>
+                        <FontAwesomeIcon icon='bars' size='2x' onClick={()=>this.toggleMobileNav()}/>
+                    </div>
                 </div>
                 {
                         this.state.isToggled ? 

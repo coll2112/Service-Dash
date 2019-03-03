@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     height: 90vh;
-    font-family: $nunito;
+    // font-family: $nunito;
     background: $primaryColor;
 
     .title-head{
@@ -28,11 +28,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid $accentColor;
+    border: 2px solid $accentColor;
     border-radius: .7em;
     width: 35vw;
     padding: 20px 10px;
-    background: white;
+    background: $primaryColor;
     color: $secondaryColor;
 
     button{
@@ -60,6 +60,7 @@
 
     h3{
         font-size: 1.5em;
+        padding: 0;
     }
 }
 

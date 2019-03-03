@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './SiteInfo.scss'
 
 export default function SiteInfo(){
-    var style = {color:'#F0544F'}
+    var style = {color:'#232A34'}
     return(
         <div className='detail-container'>
             <div className='detail-content'>

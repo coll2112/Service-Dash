@@ -77,7 +77,7 @@ class AdminServiceRequests extends Component{
                     <div className='requestBtns'>
                         <div className='dropdown' >
                             <button onClick={()=>this.toggleBtn(e.app_id)}>
-                                <span className='arrow-down'>Assign Job <FontAwesomeIcon icon='sort-down' size='1x' style={{color:'#f1f1f1'}}/></span>
+                                <span className='arrow-down'>Assign Job <FontAwesomeIcon icon='sort-down' size='1x' style={{color:'#f1f1f1'}} className='icon'/></span>
                             </button>
                             {this.state.toggle && this.state.selected === e.app_id ? 
                                 <div className='dropdown-content animated flipInX'>
