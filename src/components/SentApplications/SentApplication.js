@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {getUser, getUserInfo, getRequests, getEmployees} from '../../ducks/reducer'
 import StripeCheckout from 'react-stripe-checkout';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {toast} from 'react-toastify';
 // import {NavLink} from 'react-router-dom'
 // import Redirect from '../Redirect/Redirect'
 import './SentApplication.scss'
@@ -18,39 +17,13 @@ class SentApplication extends Component{
         this.props.getEmployees();
     }
 
-    // onToken = token => {
-    //     const body = {
-    //         amount: 4500,
-    //         token: token
-    //     }
-    //     axios
-    //     .post('/api/pay', body).then(() => {
-    //         console.log('Payment Went Through')
-    //         alert(`Payment Sucessful`);
-    //       }).catch(err=>{
-    //           console.log('error')
-    //       })
-    //   }
-
-    successPayment=()=>{
-        toast.success('Payment Successful')
-    }
-
-    onToken = (token) =>{
-        const {id} = this.props.getUser
-        axios.post(`/api/pay/${id}`,
-        {
-            token: token,
-            amount: '4500',
-            isPaid: 'True'
-        })
-        .then(this.payment())
-        .catch(console.log);
-    }
-
-    payment=()=>{
+    onToken = token => {
+        const body = {
+            amount: 4500,
+            token: token
+        }
         const {app_id} = this.props.serviceRequests
-        axios.put(`/api/pay/status`, {
+        axios.put(`/api/pay/status`, body, {
             app_id, 
             is_paid:'true'
         }).then(()=>{
@@ -58,7 +31,35 @@ class SentApplication extends Component{
         }).catch(err=>{
             console.log(err)
         })
+      }
+
+    successPayment=()=>{
+        toast.success('Payment Successful')
     }
+
+    // onToken = (token) =>{
+    //     const {id} = this.props.getUser
+    //     axios.post(`/api/pay/${id}`,
+    //     {
+    //         token: token,
+    //         amount: '4500',
+    //         isPaid: 'True'
+    //     })
+    //     .then(this.payment())
+    //     .catch(console.log);
+    // }
+
+    // payment=()=>{
+    //     const {app_id} = this.props.serviceRequests
+    //     axios.put(`/api/pay/status`, {
+    //         app_id, 
+    //         is_paid:'true'
+    //     }).then(()=>{
+    //         this.successPayment()
+    //     }).catch(err=>{
+    //         console.log(err)
+    //     })
+    // }
 
     // payment=()=>{
     //     const {app_id} = this.props.serviceRequests
@@ -94,7 +95,6 @@ class SentApplication extends Component{
                             // zipCode
                         />
                         <h4>Service Fee: $45</h4>
-                        <ToastContainer/>
                     </div>
                 </div>
             )

@@ -92,3 +92,82 @@
     from{opacity: 0;}
     to{opacity: 1;}
 }
+
+@media(max-width:768px){
+    .showcase{
+        &::after{
+            background-size: 210%;
+            background-attachment: scroll;
+        }
+
+        h2{
+            font-size: 8em;
+            animation: showcaseIntro .9s linear, slideInRight 1.2s ease-out;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            margin: 10px;
+            font-family: $courgette;
+        }
+    
+        h3{
+            font-size: 2.5em;
+            text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+            animation: showcaseIntro .9s linear, slideInLeft 1.2s ease-out;
+            animation-fill-mode: forwards;
+        }   
+    }
+
+    .button{
+        padding: 25px 65px;
+        font-size: 2em;
+        opacity: 0;
+        color: $primaryColor;
+        box-shadow: 1px 1px 1px $shadowColor;
+    
+        &:hover{
+            background-color: $accentColor;
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}
+
+@media(max-width:525px){
+    .showcase{
+        &::after{       
+            background-size: cover;
+            height:100%;
+            width:100%;
+        }
+
+        h2{
+            font-size: 4.5em;
+            animation: none;
+            opacity: 1;
+            margin: 10px;
+            font-family: $courgette;
+        }
+    
+        h3{
+            font-size: 1.2em;
+            text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+            animation: none;
+            opacity: 1;
+        }   
+    }
+
+    .button{
+        padding: 20px 55px;
+        font-size: 1.1em;
+        opacity: 1;
+        color: $primaryColor;
+        box-shadow: 1px 1px 1px $shadowColor;
+        animation: none;
+    
+        &:hover{
+            background-color: none;
+            transform: none;
+            box-shadow: none;
+        }
+    }
+}

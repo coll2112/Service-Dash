@@ -63,3 +63,24 @@
         }
     }
 }
+
+@media(max-width: 768px){
+    .infoForm{
+        width: 75%;
+        padding-bottom: 25px;
+
+        &>h2{
+            font-size: 1.4em;
+        }
+    }
+
+    button{
+        transition: none;
+    }
+}
+
+@media(max-width: 525px){
+    .infoForm{
+        width: 90%;
+    }
+}

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
 import {loginChange, getUser, getUserInfo} from '../../ducks/reducer'
 import axios from 'axios'
 import './Login.scss'
@@ -11,7 +10,9 @@ class Login extends Component{
         this.state={
             username:'',
             password:'',
-            err: false
+            err: false,
+            clicked: false,
+            className:'login-container animated fadeInDownBig'
         }
     }
 
@@ -27,15 +28,20 @@ class Login extends Component{
             this.props.history.push('/')
         }).catch((err)=>{
             console.log(err)
-            this.setState({err: true})
+            this.setState({
+                err: true,
+                className:'login-container animated headShake'
+            })
         })
     }
+
+
 
     render(){
         console.log(this.props.user)
         return(
             <div className='login-page-container'>
-                <div className='login-container animated fadeInDownBig'>
+                <div className={this.state.className}>
                     <div className='inputs'>
                         <p>Username:</p>
                         <input type='text' name='username' onChange={this.updateInput}/>

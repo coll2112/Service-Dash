@@ -10,12 +10,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30vw;
+    width: 40vw;
     margin: auto;
     // border: 1px solid black;
 
     button{
-        margin-top: 5vh;
+        margin: 15px 0;
         border: none;
         font-size: 1.5em;
         background: $accentColor;
@@ -40,9 +40,6 @@
         z-index: -1;
         opacity: .5;
     }
-}
-
-.inputs{
 
     input{
         background: transparent;
@@ -59,8 +56,19 @@
         &:focus{
             outline: none;
             border-bottom: 2px solid #242424;
-            // margin-top: 0px;
         }
     }
+}
 
+@media(max-width:768px){
+    .login-container{
+        width: 70vw;
+    }
+}
+
+@media(max-width: 525px){
+    .login-container{
+        width:85vw;
+        animation: none !important;
+    }
 }

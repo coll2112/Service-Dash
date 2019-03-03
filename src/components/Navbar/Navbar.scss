@@ -3,14 +3,14 @@
 .navbar{
     background: $darkBlue;
     width: 100vw;
-    height: 10vh;
+    min-height: 10vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: $primaryColor;
     position: sticky;
     top:0;
-    z-index: 2;
+    z-index: 3;
     // opacity: 0.9;
     // border-bottom: 0.5vh solid $accentColor;
         
@@ -26,9 +26,14 @@
         justify-content: space-between;
         width: 145px;
         font-family: $lobster;
+        z-index: 3;
         // font-family: $courgette;
         // border: 1px solid white;
     }
+}
+
+.mobileNav{
+    display: none;
 }
 
 .links{
@@ -55,36 +60,6 @@
                 width: 100%;
                 transition: width .3s;
             }
-
-            // &:focus{
-            //     color: $highlightColor;
-            // }
-
-            // &::before{
-            //     content: "";
-            //     display: block;
-            //     width: 0;
-            //     height: 5px;
-            //     margin-top: 2px;
-            //     background: $accentColor;
-            //     transition: width .3s;
-            // }
-
-            // &:hover::before{
-            //     width: 100%;
-            //     transition: width .3s;
-            // }
-
-
-            // &.selected{
-            //     // content: "";
-            //     // display: block;
-            //     // width: 100%;
-            //     // height: 3px;
-            //     // margin-top: 2px;
-            //     // background: $accentColor;
-            //     color: $accentColor;
-            // }
         }
 
         // button{
@@ -108,4 +83,51 @@
         //         transform: translateY(2px);
         //     }
         // }
+}
+
+@media(max-width:768px){
+    .links{
+        display: none;
+    }
+    .mobileNav{
+        display: block;
+        position: relative;
+        z-index: 3;
+    }
+    .mobile-links{
+        position: absolute;
+        list-style-type: none;
+        top: 9vh;
+        // left: 50vw;
+        background:$darkBlue;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: stretch;
+        min-width: 100%;
+        // min-height: vh;
+        font-size: 1.1em;
+        z-index: 1;
+        animation-duration: .4s;
+        
+        a{  
+            padding: 20px 0;
+            margin: 2px 0;
+            color:$primaryColor;
+            // border-top: 2px solid $darkBlue;
+            background: $accentColor;
+
+                &:nth-last-child(1){
+                     // border-bottom: 2px solid $darkBlue;
+                     margin-bottom: 0px;
+                }
+        }
+    }
+}
+
+@media(max-width:375px){
+    .mobile-links{
+        font-size: 1.0em;
+    }
 }

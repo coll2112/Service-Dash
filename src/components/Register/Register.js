@@ -8,8 +8,16 @@ class Register extends Component{
     constructor(){
         super();
         this.state={
-            
-            toggleForm: false
+            toggleForm: false,
+            firstname:'',
+            lastname:'',
+            address:'',
+            city:'',
+            state:'',
+            zip:'',
+            username: '',
+            email:'',
+            password:''
         }
     }
 
@@ -45,35 +53,36 @@ class Register extends Component{
     
 
     render(){
-        console.log(this.state.email)
+        console.log(this.state.username)
+        const {username, password, email, firstname, lastname, address, city, state, zip} =  this.state
         return(
             <div className='login-page-container'>
                 <div className='login-container fadeInDownBig animated'>
                 {this.state.toggleForm ? 
                     <div className='inputs'>
                         <p>Username:</p>
-                        <input type='text' name='username' required onChange={this.updateInput}/>
+                        <input type='text' name='username' value={username} required onChange={this.updateInput}/>
                         <p>Email:</p>
-                        <input type='email' name='email' required onChange={this.updateInput}/>
+                        <input type='email' name='email' value={email} required onChange={this.updateInput}/>
                         <p>Password:</p>
-                        <input type='password' name='password' required onChange={this.updateInput}/>
+                        <input type='password' name='password' value={password} required onChange={this.updateInput}/>
                         <button onClick={()=>this.setState({toggleForm:!this.state.toggleForm})}>Back</button>
                         <button onClick={()=>this.registerUser()}>Register</button>
                     </div>
                     :
                     <div className='inputs'>
                         <p>First Name:</p>
-                        <input type='text' name='firstname' required onChange={this.updateInput}/>
+                        <input type='text' name='firstname' value={firstname} required onChange={this.updateInput}/>
                         <p>Last Name:</p>
-                        <input type='text' name='lastname' required onChange={this.updateInput}/>
+                        <input type='text' name='lastname' value={lastname} required onChange={this.updateInput}/>
                         <p>Address:</p>
-                        <input type='text' name='address' required onChange={this.updateInput}/>
+                        <input type='text' name='address'value={address} required onChange={this.updateInput}/>
                         <p>City:</p>
-                        <input type='text' name='city' required onChange={this.updateInput}/>
+                        <input type='text' name='city' value={city} required onChange={this.updateInput}/>
                         <p>State:</p>
-                        <input type='text' name='state' required onChange={this.updateInput}/>
+                        <input type='text' name='state' value={state} required onChange={this.updateInput}/>
                         <p>Zip:</p>
-                        <input type='number' name='zip' required onChange={this.updateInput}/>
+                        <input type='number' name='zip' value={zip} equired onChange={this.updateInput}/>
                         <button onClick={()=>this.setState({toggleForm:!this.state.toggleForm})}>Next</button>
                     </div>
                 }

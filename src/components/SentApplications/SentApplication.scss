@@ -57,3 +57,33 @@
         }
     }
 }
+
+@media(max-width: 768px){
+    .sentMap{
+        padding: 35px 15px;
+        margin: 40px 0;
+        width: 75vw;
+        font-size: 1.1em;
+    }
+}
+
+@media(max-width: 525px){
+    .sentMap{
+        padding: 1px 15px;
+        margin: 40px 0;
+        width: 80vw;
+        font-size: 1.1em;
+        border-left: none;
+        border-right: none;
+        border-top: 25px solid $accentColor;
+        border-bottom: 5px solid $accentColor;
+    }
+
+    .stripe-checkout{
+        flex-direction: column;
+
+        h4{
+            padding: 0 !important;
+        }
+    }
+}

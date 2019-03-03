@@ -1,24 +1,63 @@
 @import '../../variables.scss';
 
-.details{
-    height: 70vh;
+.detail-container{
+    width: 100vw;
     color: $secondaryColor;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    // background-color: rgb(181, 200, 209);
     background-color: #f1f1f1;
+    
 
     p{
         font-family: $nunito;
+        text-align: center;
     }
 
-    &>div{
-       width: 25vw;
-       height: 35vh;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: baseline;
+    .detail-content{
+        display:flex;
+        padding: 100px 0;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: baseline;
+
+        &>div{
+            width: 35vw;
+            padding: 0px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@media(max-width: 768px){
+    .detail-content{
+        flex-direction: column !important;
+        padding: 0 !important;
+        width: 6vw !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        &>div{
+            width: 90vw !important;
+            padding: 40px 0 !important;
+        }
+    }
+}
+
+@media(max-width:375px){
+    .detail-content{
+        flex-direction: column !important;
+        padding: 0 !important;
+        width: 80vw !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        &>div{
+            width: 90vw !important;
+            padding: 40px 0;
+        }
     }
 }

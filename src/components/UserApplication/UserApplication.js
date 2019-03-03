@@ -3,6 +3,7 @@ import {getUser, getUserInfo, getRequests} from '../../ducks/reducer'
 import { connect } from 'react-redux';
 import UserInfoList from '../UserInfoList/UserInfoList'
 import Redirect from '../Redirect/Redirect'
+import {toast} from 'react-toastify'
 import axios from 'axios'
 import './UserApplication.scss'
 
@@ -11,7 +12,8 @@ class UserApplication extends Component{
         super();
         this.state={
             comment: '',
-            appStatus: ''
+            appStatus: '',
+            className:'app-content'
         }
     }
     async componentDidMount(){
@@ -39,19 +41,26 @@ class UserApplication extends Component{
         const {id} = this.props.user
         e.preventDefault();
         axios.post('/api/submitApplication', {id, comment, status:'Pending'}).then(response=>{
-            this.props.getUserInfo(id);
-            this.props.getUser();
+            this.setState({className:'app-content animated bounceOutUp'})
+            setTimeout(() => {
+                // this.props.getUserInfo(id);
+                // this.props.getUser();
+                toast.success('Service Request Submitted')
+                this.props.history.push('/dashboard')
+            },1500);
         }).catch(err=>{
             console.log(err)
+            toast.warn('Unable to Submit Request')
+            this.setState({className:'app-content animated headShake'})
         })
-        e.target.reset()
+        // e.target.reset()
     }
 
     render(){
         // console.log(this.state.appStatus)
         return this.props.user.username ? (
             <div className='application-container'>
-                <div className='app-content'>
+                <div className={this.state.className}>
                     <h3>Submit Service Request</h3>
                     <div className='userInfo'>
                         <p>
@@ -63,7 +72,7 @@ class UserApplication extends Component{
                     </div>
                     <form onSubmit={this.submitApplication} className='appForm'>
                         <p>Please fill out the comment box below and let us know what we can assist with.</p>
-                        <textarea rows='5' name='comment' onChange={this.updateInput}/>
+                        <textarea rows='5' name='comment' required onChange={this.updateInput}/>
                         <button>Submit Application</button>
                     </form>
                 </div>

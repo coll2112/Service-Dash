@@ -7,41 +7,91 @@ import './Navbar.scss'
 
 
 class Navbar extends Component{
+    constructor(){
+        super();
+        this.state={
+            isToggled: false,
+            className:'mobile-links animated fadeInDown'
+        }
+    }
 
     async componentDidMount(){
         await this.props.getUser();
         this.props.getUserInfo(this.props.user.id);
     }
 
+    toggleMobileNav=()=>{
+        this.setState({
+            isToggled:!this.state.isToggled,
+        })
+    }
+
+    closeNav=()=>{
+        this.setState({isToggled:false})
+    }
+
+    logoutAndClose=()=>{
+        this.props.logout();
+        this.closeNav();
+    }
+
     render(){
-        console.log(this.props.user)
+        // console.log(this.state.isToggled)
         return(
             <div className='navbar'>
                 <div className='logo'>
                     <FontAwesomeIcon icon='people-carry' size='2x'/>
-                    <Link to='/'><h1>Push.Co</h1></Link>
+                    <h1>Push.Co</h1>
                 </div>
                 <div className='links'>
-                    <NavLink exact to='/' activeClassName='selected'><li>Home</li></NavLink>
+                    <Link exact to='/' activeClassName='selected'><li>Home</li></Link>
                     {
                         this.props.user.isAdmin === 'true' ? 
-                        <NavLink to='/portal' activeClassName='selected'><li>Admin Portal</li></NavLink> : 
+                        <Link to='/portal' activeClassName='selected'><li>Admin Portal</li></Link> : 
                         null
                     }
                     {
                         !this.props.user.username ? 
                         null : 
                             this.props.user.isAdmin === null ? 
-                            <NavLink to='/dashboard' activeClassName='selected'>Dashboard</NavLink> :
+                            <Link to='/dashboard' activeClassName='selected'>Dashboard</Link> :
                             null
                     }
                     {
                         this.props.user.username ? 
-                        <NavLink exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></NavLink> :
-                        <NavLink to='/login' activeClassName='selected'><li>Login</li></NavLink>
+                        <Link exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></Link> :
+                        <Link to='/login' activeClassName='selected'><li>Login</li></Link>
                         
                     }
                 </div>
+                <div className='mobileNav'>
+                    <FontAwesomeIcon icon='bars' size='2x' onClick={()=>this.toggleMobileNav()}/>
+                </div>
+                {
+                        this.state.isToggled ? 
+                        <div className={this.state.className}>
+                        <Link exact to='/' onClick={()=>this.closeNav()}><li>Home</li></Link>
+                        {
+                            this.props.user.isAdmin === 'true' ? 
+                            <Link to='/portal' onClick={()=>this.closeNav()}><li>Admin Portal</li></Link> : 
+                            null
+                        }
+                        {
+                            !this.props.user.username ? 
+                            null : 
+                                this.props.user.isAdmin === null ? 
+                                <Link to='/dashboard' onClick={()=>this.closeNav()}>Dashboard</Link> :
+                                null
+                        }
+                        {
+                            this.props.user.username ? 
+                            <Link exact to='/' onClick={()=>this.logoutAndClose()}><li>Logout</li></Link> :
+                            <Link to='/login' onClick={()=>this.closeNav()}><li>Login</li></Link>
+                            
+                        }
+                    </div> : 
+                            null
+                    }
             </div>
         )
     }

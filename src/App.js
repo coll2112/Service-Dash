@@ -22,7 +22,8 @@ import {
   faQuoteLeft,
   faQuoteRight,
   faCompass,
-  faAngleRight
+  faAngleRight,
+  faBars
 } from '@fortawesome/free-solid-svg-icons'
 
 //Font Awesome Library
@@ -41,7 +42,8 @@ library.add(
   faInstagram,
   faTwitterSquare,
   faCompass,
-  faAngleRight
+  faAngleRight,
+  faBars
   )
   
 class App extends Component {
