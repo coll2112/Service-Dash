@@ -6,6 +6,7 @@ import Redirect from '../Redirect/Redirect'
 import UserInfoList from '../UserInfoList/UserInfoList'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './Dashboard.scss'
+import Loader from 'react-loader-spinner'
 import { toast } from "react-toastify";
 
 class Dashboard extends Component{
@@ -33,11 +34,11 @@ class Dashboard extends Component{
             </div>
             :
             <div>
-                Loading...
+                <Loader Loader type="Oval" color="#7C90A0" height={100} width={100}/>
             </div>
         ) : (
             <div>
-                {/* <Redirect/> */}
+                <Redirect/>
             </div>
         )
     }
