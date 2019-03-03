@@ -1,5 +1,11 @@
 @import '../../variables.scss';
 
+.navbar-container{
+    position: sticky !important;
+    top:0;
+    z-index: 2;
+}
+
 .navbar{
     background: $darkBlue;
     width: 100vw;
@@ -8,9 +14,8 @@
     justify-content: space-around;
     align-items: center;
     color: $primaryColor;
-    position: sticky;
-    top:0;
-    z-index: 3;
+    // z-index: 3;
+    
     // opacity: 0.9;
     // border-bottom: 0.5vh solid $accentColor;
         
@@ -92,7 +97,7 @@
     .mobileNav{
         display: block;
         position: relative;
-        z-index: 3;
+        z-index: 1;
     }
     .mobile-links{
         position: absolute;
@@ -108,13 +113,13 @@
         min-width: 100%;
         // min-height: vh;
         font-size: 1.1em;
-        z-index: 1;
+        z-index:-1;
         animation-duration: .4s;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.616);
         
         a{  
             padding: 20px 0;
-            margin: 2px 0;
+            margin: 5px 0;
             color:$primaryColor;
             // border-top: 2px solid $darkBlue;
             background: $accentColor;

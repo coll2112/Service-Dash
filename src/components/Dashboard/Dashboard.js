@@ -33,7 +33,7 @@ class Dashboard extends Component{
                 </div> 
             </div>
             :
-            <div>
+            <div className='spinner'>
                 <Loader Loader type="Oval" color="#7C90A0" height={100} width={100}/>
             </div>
         ) : (

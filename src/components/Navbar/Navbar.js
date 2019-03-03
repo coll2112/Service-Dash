@@ -11,7 +11,7 @@ class Navbar extends Component{
         super();
         this.state={
             isToggled: false,
-            className:'mobile-links animated fadeInDown'
+            className:'mobile-links animated slideInDown'
         }
     }
 
@@ -44,7 +44,7 @@ class Navbar extends Component{
     render(){
         // console.log(this.state.isToggled)
         return(
-            <div>
+            <div className='navbar-container'>
                 <div className='navbar'>
                     <div className='logo'>
                         <FontAwesomeIcon icon='people-carry' size='2x'/>
