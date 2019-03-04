@@ -57,7 +57,6 @@ class UserApplication extends Component{
     }
 
     render(){
-        // console.log(this.state.appStatus)
         return this.props.user.username ? (
             <div className='application-container'>
                 <div className={this.state.className}>

@@ -51,7 +51,7 @@ async function payment(){
 
 // Pay with Stripe
 app.post('/api/pay', payment)
-app.put('/api/pay/status', payStatus)
+app.put('/api/pay/status/:id', payStatus)
 
 //user
 app.get('/api/customers', getCustomers)

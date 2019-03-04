@@ -61,8 +61,6 @@ class AdminServiceRequests extends Component{
             )
         })
 
-        console.log(deniedRequests)
-
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">

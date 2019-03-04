@@ -12,15 +12,8 @@ class UserInfoList extends Component{
 
 
     render(){
-        
-        // if(this.props.userInfo[0]){
-        //     var userMap = this.props.userInfo.map((e,i)=>{
-        //         <p key={i}>{e.firstname}</p>
-        //     })
-        // }
 
         if(this.props.userInfo[0]){
-            // console.log(this.props.userInfo[0])
             var {firstname, lastname, address, city, state, zip} = this.props.userInfo[0]
         }
 

@@ -38,7 +38,6 @@ class Login extends Component{
 
 
     render(){
-        console.log(this.props.user)
         return(
             <div className='login-page-container'>
                 <div className={this.state.className}>

@@ -44,8 +44,6 @@ class AdminPortal extends Component{
     }
 
     render(){
-        console.log(this.state.user)
-
         const pendingRequests = this.props.serviceRequests.filter((e)=>{
             return e.status === 'Pending'
         })

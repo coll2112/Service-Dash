@@ -53,7 +53,6 @@ class Register extends Component{
     
 
     render(){
-        console.log(this.state.username)
         const {username, password, email, firstname, lastname, address, city, state, zip} =  this.state
         return(
             <div className='login-page-container'>

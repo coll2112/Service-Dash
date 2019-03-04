@@ -81,7 +81,6 @@ class AdminServiceRequests extends Component{
             )
         })
 
-        console.log(this.state.togglePending)
         return this.props.user.username && this.props.user.isAdmin === 'true' ? (
              this.props.isLoading ? 
                 <div className="spinner">

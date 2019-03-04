@@ -42,7 +42,6 @@ class Navbar extends Component{
     }    
 
     render(){
-        // console.log(this.state.isToggled)
         return(
             <div className='navbar-container'>
                 <div className='navbar'>
@@ -53,16 +52,9 @@ class Navbar extends Component{
                     <div className='links'>
                         <Link to='/'><li>Home</li></Link>
                         {
-                            this.props.user.isAdmin === 'true' ? 
-                            <Link to='/portal'><li>Admin Portal</li></Link> : 
-                            null
-                        }
-                        {
-                            !this.props.user.username ? 
-                            null : 
-                                this.props.user.isAdmin === null ? 
-                                <Link to='/dashboard'>Dashboard</Link> :
-                                null
+                            this.props.user.username ? 
+                                this.props.user.isAdmin === 'true' ? <Link to='/portal'><li>Admin Portal</li></Link> : <Link to='/dashboard'>Dashboard</Link> 
+                                : null
                         }
                         {
                             this.props.user.username ? 

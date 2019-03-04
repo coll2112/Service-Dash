@@ -44,11 +44,6 @@ class UserAccount extends Component{
     }
 
     render(){
-        // if(this.props.userInfo[0]){
-        //     console.log(this.props.userInfo[0])
-        // }
-
-        // console.log(this.props.user)
         
         return this.props.user.username && this.props.userInfo[0] ? (
              <div className='account-container'>

@@ -140,7 +140,8 @@ getEmployees=(req,res)=>{
 
 assignJob=(req,res)=>{
     const db = req.app.get('db')
-    const {app_id, employee_id} = req.body
+    const {employee_id} = req.body
+    const {app_id} = req.params
 
     db.addJob([app_id, employee_id]).then(response=>{
         res.status(200).send(response)
@@ -152,9 +153,11 @@ assignJob=(req,res)=>{
 
 payStatus=(req,res)=>{
     const db = req.app.get('db')
-    const {app_id, is_paid} = req.body
+    const {is_paid} = req.body
+    const {id} = req.params
 
-    db.setPay([app_id, is_paid]).then(response=>{
+    console.log(id, is_paid)
+    db.setPay([id, is_paid]).then(response=>{
         res.status(200).send(response)
     }).catch(err=>{
         console.log(err)
