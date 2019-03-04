@@ -7,7 +7,6 @@ import UserInfoList from '../UserInfoList/UserInfoList'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import './Dashboard.scss'
 import Loader from 'react-loader-spinner'
-import { toast } from "react-toastify";
 
 class Dashboard extends Component{
     async componentDidMount(){

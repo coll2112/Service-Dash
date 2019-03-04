@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom'
 import {getRequests} from '../../ducks/reducer'
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
+import Redirect from '../Redirect/Redirect'
 import './AdminServiceRequests.scss'
 
 class AdminServiceRequests extends Component{
@@ -82,7 +83,7 @@ class AdminServiceRequests extends Component{
                 </div>
         ) : (
             <div>
-                Admins Only
+                <Redirect/>
             </div>
         )
     }

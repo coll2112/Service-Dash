@@ -38,3 +38,31 @@
         transform: rotate(90deg)
     }
 }
+
+@media(max-width: 768px){
+    .redirect-container{
+        
+        h2{
+            font-size: 2.2em;
+            margin-bottom: 0px;
+        }
+
+        p{
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media(max-width: 525px){
+    .redirect-container{
+        text-align: center;
+        h2{
+            font-size: 2em;
+            margin-bottom: 0px;
+        }
+
+        p{
+            font-size: 1em;
+        }
+    }
+}

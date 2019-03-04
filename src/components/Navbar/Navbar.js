@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser, getUserInfo, logout} from '../../ducks/reducer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -51,23 +51,23 @@ class Navbar extends Component{
                         <h1>Push.Co</h1>
                     </div>
                     <div className='links'>
-                        <Link exact to='/' activeClassName='selected'><li>Home</li></Link>
+                        <Link to='/'><li>Home</li></Link>
                         {
                             this.props.user.isAdmin === 'true' ? 
-                            <Link to='/portal' activeClassName='selected'><li>Admin Portal</li></Link> : 
+                            <Link to='/portal'><li>Admin Portal</li></Link> : 
                             null
                         }
                         {
                             !this.props.user.username ? 
                             null : 
                                 this.props.user.isAdmin === null ? 
-                                <Link to='/dashboard' activeClassName='selected'>Dashboard</Link> :
+                                <Link to='/dashboard'>Dashboard</Link> :
                                 null
                         }
                         {
                             this.props.user.username ? 
-                            <Link exact to='/' activeClassName='selected' onClick={()=>this.props.logout()}><li>Logout</li></Link> :
-                            <Link to='/login' activeClassName='selected'><li>Login</li></Link>
+                            <Link to='/' onClick={()=>this.props.logout()}><li>Logout</li></Link> :
+                            <Link to='/login'><li>Login</li></Link>
                             
                         }
                     </div>

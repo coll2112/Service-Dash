@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import {getUser, getUserInfo, getRequests, getEmployees} from '../../ducks/reducer'
 import StripeCheckout from 'react-stripe-checkout';
 import {toast} from 'react-toastify';
-// import {NavLink} from 'react-router-dom'
-// import Redirect from '../Redirect/Redirect'
+import Redirect from '../Redirect/Redirect'
 import './SentApplication.scss'
 import axios from "axios";
+import Loader from 'react-loader-spinner'
 
 class SentApplication extends Component{
 
@@ -100,12 +100,19 @@ class SentApplication extends Component{
             )
         })
 
-        return(
-            <div className='subApp-container'>
-                <div>
-                    {approvedMap}
+        return this.props.user.username ? (
+            this.props.userInfo[0] ? 
+                <div className='subApp-container'>
+                    <div>
+                        {approvedMap}
+                    </div>
+                </div> 
+                : 
+                <div className="spinner">
+                    <Loader Loader type="Oval" color="#7C90A0" height={100} width={100}/>
                 </div>
-            </div>
+        ) : (
+            <Redirect/>
         )
     }
 }

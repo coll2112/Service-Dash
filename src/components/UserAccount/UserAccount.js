@@ -71,7 +71,7 @@ class UserAccount extends Component{
             </div> 
         ) : (
             <div>
-                {/* <Redirect/> */}
+                <Redirect/>
             </div>
         )
     }

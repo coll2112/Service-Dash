@@ -20,10 +20,6 @@ class AccessDenied extends Component{
         }, 2000);
     }
 
-    // componentWillUnmount(){
-
-    // }
-
     render(){
         return(
             <div className='redirect-container'>

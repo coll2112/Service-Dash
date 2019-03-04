@@ -20,8 +20,8 @@ class EmployeeList extends Component{
     render(){
         const employeeMap = this.props.employees.map((e,i)=>{
             return(
-                <div className='wrapper'>
-                    <div key={i} className='employeeList'>
+                <div className='wrapper' key={i}>
+                    <div  className='employeeList'>
                         <h3>Employee ID: {e.employee_id}</h3>
                         <h3>{e.firstname} {e.lastname}</h3>
                         <button onClick={()=>this.removeEmployee(e.employee_id)}>Remove Employee</button>

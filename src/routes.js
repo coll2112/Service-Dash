@@ -6,7 +6,6 @@ import {Switch, Route} from 'react-router-dom'
 import Landing from './components/Landing/Landing'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
-// import AccessDenied from './components/AccessDenied/AccessDenied'
 
 //User Side Routes
 import UserAccount from './components/UserAccount/UserAccount'
@@ -19,7 +18,6 @@ import AdminPortal from './components/AdminPortal/AdminPortal'
 import AdminServiceRequests from './components/AdminServiceRequests/AdminServiceRequests'
 import DeniedRequests from './components/AdminServiceRequests/DeniedRequests'
 import AcceptedRequests from './components/AdminServiceRequests/AcceptedRequests'
-// import PendingRequests from './components/AdminServiceRequests/PendingRequests'
 
 export default (
     <Switch>
@@ -27,7 +25,7 @@ export default (
         <Route exact path='/' component={Landing}/>
         <Route path='/login' component={Login}/>
         <Route path='/register' component={Register}/>
-        {/* <Route path='/redirect' component={AccessDenied}/> */}
+        {/* <Route path='/redirect' component={Redirect}/> */}
 
         {/* User Side Routes */}
         <Route exact path='/dashboard' component={Dashboard}/>

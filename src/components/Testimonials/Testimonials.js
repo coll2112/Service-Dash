@@ -46,7 +46,7 @@ class Testimonials extends Component{
                         <Carousel
                             slidesToShow={1}
                             autoplay={true}
-                            frameOverflow={false}
+                            frameOverflow='false'
                             autoplayInterval={5000}
                             wrapAround={true}
                             width={'55vw'}
@@ -69,7 +69,7 @@ class Testimonials extends Component{
                         <Carousel
                             slidesToShow={1}
                             autoplay={true}
-                            frameOverflow={false}
+                            // frameOverflow={false}
                             autoplayInterval={5000}
                             wrapAround={true}
                             width={'100vw'}
