@@ -4,6 +4,7 @@ const {json} = require('body-parser')
 const massive = require('massive')
 const session =  require('express-session')
 const stripe = require('stripe')(process.env.STRIPE_SECRET)
+const path = require('path');
 const {
     getCustomers, 
     addUserInfo, 
@@ -73,6 +74,11 @@ app.get('/api/user', userSession)
 app.post('/api/login', login)
 app.post('/api/register', register,)
 app.get('/api/logout', logout)
+
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 const port = process.env.SERVER_PORT
 app.listen(port, () => {
