@@ -75,6 +75,8 @@ app.post('/api/login', login)
 app.post('/api/register', register,)
 app.get('/api/logout', logout)
 
+//Hosting
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
