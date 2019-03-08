@@ -47,7 +47,7 @@ class Navbar extends Component{
                 <div className='navbar'>
                     <div className='logo'>
                         <FontAwesomeIcon icon='people-carry' size='2x'/>
-                        <h1>Push.Co</h1>
+                        <h1>ServiceDash</h1>
                     </div>
                     <div className='links'>
                         <Link to='/'><li>Home</li></Link>

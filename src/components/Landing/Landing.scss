@@ -28,9 +28,9 @@
     }
 
     h2{
-        font-size: 7em;
-        text-shadow: 2px 2px 2px $shadowColor, -2px -2px 2px $shadowColor;
-        // text-shadow: 1px 2px 1px $shadowColor, -1px -2px 1px $shadowColor;
+        font-size: 5em;
+        // text-shadow: 2px 2px 2px $shadowColor, -2px -2px 2px $shadowColor;
+        text-shadow: 1px 2px 3px $shadowColor, -1px 2px 2px $shadowColor;
         // margin-bottom: -20px;
         animation: showcaseIntro .9s linear, slideInRight 1.2s ease-out;
         animation-fill-mode: forwards;
@@ -41,9 +41,10 @@
 
     h3{
         font-size: 1.7em;
-        font-family: $nunito;
+        // font-family: $nunito;
         // text-shadow: 2px 1px 3px $shadowColor;
-        text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+        // text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+        text-shadow: 1px 1px 1px $shadowColor, -1px 1px 1px $shadowColor;
         animation: showcaseIntro .9s linear, slideInLeft 1.2s ease-out;
         animation-fill-mode: forwards;
         opacity: 0;

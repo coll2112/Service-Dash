@@ -26,14 +26,15 @@
 
     .logo{
         display: flex;
-        height: 10vh;
         align-items: center;
-        justify-content: space-between;
-        width: 145px;
-        font-family: $lobster;
+        // font-family: $lobster;
         z-index: 3;
-        // font-family: $courgette;
-        // border: 1px solid white;
+        font-family: $courgette;
+
+        h1{
+            font-size: 1.4em;
+            margin-left: 10px;
+        }
     }
 }
 
