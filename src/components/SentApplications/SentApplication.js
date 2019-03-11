@@ -35,6 +35,7 @@ class SentApplication extends Component{
         })
 
         return this.props.user.username ? (
+            approvedMap.length ? 
             this.props.userInfo[0] ? 
                 <div className='subApp-container'>
                     <div>
@@ -44,6 +45,13 @@ class SentApplication extends Component{
                 : 
                 <div className="spinner">
                     <Loader Loader type="Oval" color="#7C90A0" height={100} width={100}/>
+                </div>
+                :
+                <div className='subApp-container'>
+                    <div>
+                        <h3>You Currently Have No Approved Requests</h3>
+                    </div>
+
                 </div>
         ) : (
             <Redirect/>
