@@ -70,10 +70,10 @@ class AdminPortal extends Component{
                     <div className='employeeContainer'>
                         <div className='addEmployee'>
                             <div className='employeeForm'>
-                                <div className='formHeader'>Add Employee</div>
-                                <form onSubmit={this.addEmployee}>
-                                    <input placeholder='Employee First Name' name='employeeFirstName' required onChange={this.updateInput}/>
-                                    <input placeholder='Employee Last Name' name='employeeLastName' required onChange={this.updateInput}/>
+                                <div className='formHeader'>Add Company</div>
+                                <form onSubmit={this.addEmployee} className='companyForm'>
+                                    <input placeholder='Company Name' name='employeeFirstName' required onChange={this.updateInput}/>
+                                    {/* <input placeholder='Employee Last Name' name='employeeLastName' required onChange={this.updateInput}/> */}
                                     <button className='formSubmitBtn'>Submit</button>
                                 </form>
                             </div>

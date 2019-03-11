@@ -20,7 +20,8 @@ class Login extends Component{
         this.setState({[e.target.name]:e.target.value})
     }
 
-    submitLogin=()=>{
+    submitLogin=(e)=>{
+        e.preventDefault()
         const {username, password} = this.state
         // const {login} = this.props
         axios.post('api/login', {username, password}).then(()=>{
@@ -41,14 +42,17 @@ class Login extends Component{
         return(
             <div className='login-page-container'>
                 <div className={this.state.className}>
-                    <div className='inputs'>
-                        <p>Username:</p>
-                        <input type='text' name='username' onChange={this.updateInput}/>
-                        <p>Password:</p>
-                        <input type='password' name='password' onChange={this.updateInput}/>
+                    <div>
+                        <form className='inputs' onSubmit={this.submitLogin}>
+                            <p>Username:</p>
+                            <input type='text' name='username' required onChange={this.updateInput}/>
+                            <p>Password:</p>
+                            <input type='password' name='password' required onChange={this.updateInput}/>
+                            <button>Login</button>
+                        </form>
                     </div>
                     {this.state.err ? <p  style={{color:'red', textAlign: 'center'}}>Username or Password Incorrect</p> : null}
-                    <button onClick={()=>this.submitLogin()}>Login</button>
+                    
                 </div>
             </div>
         )

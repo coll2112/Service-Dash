@@ -9,15 +9,21 @@ export default function SiteInfo(){
             <div className='detail-content'>
                 <div className='detail-item'>
                     <FontAwesomeIcon icon='comments' size='8x' className='icon' style={style}/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat tincidunt volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetu.</p>
+                    <p>
+                        With ServiceSprint, we offer quick and timely responses with our customers and the companies we work with. All you have to do is submit an application and our team here at ServiceSprint will take care of the rest. 
+                    </p>
                 </div>
                 <div className='detail-item'>
                     <FontAwesomeIcon icon='dollar-sign' size='8x' className='icon' style={style}/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat tincidunt volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sit amet tempus purus. Cras eget lig.</p>
+                    <p>
+                        We know that hiring a third-party is expensive, so we work with you to make sure you don't break the bank. With just a flate rate fee of $45, ServiceSprint makes sure to take good care of your time and money.
+                    </p>
                 </div>
                 <div className='detail-item'>
                     <FontAwesomeIcon icon='tachometer-alt' size='8x' className='icon' style={style}/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat tincidunt volutpat.</p>
+                    <p>
+                        ServiceSprint makes sure to get back to you within the same day. We guarantee the companies we work with have immediate openings and places for our customers!
+                    </p>
                 </div>
             </div>
         </div>

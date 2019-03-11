@@ -36,12 +36,12 @@
         animation-fill-mode: forwards;
         opacity: 0;
         margin: 10px;
-        font-family: $courgette;
+        font-family: $nunito;
     }
 
     h3{
         font-size: 1.7em;
-        // font-family: $nunito;
+        font-family: $nunito;
         // text-shadow: 2px 1px 3px $shadowColor;
         // text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
         text-shadow: 1px 1px 1px $shadowColor, -1px 1px 1px $shadowColor;
@@ -102,7 +102,7 @@
         }
 
         h2{
-            font-size: 6em;
+            font-size: 4.5em;
             animation: showcaseIntro .9s linear, slideInRight 1.2s ease-out;
             animation-fill-mode: forwards;
             opacity: 0;
@@ -111,8 +111,7 @@
         }
     
         h3{
-            font-size: 1.7em;
-            text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+            font-size: 1.4em;
             animation: showcaseIntro .9s linear, slideInLeft 1.2s ease-out;
             animation-fill-mode: forwards;
         }   
@@ -142,7 +141,7 @@
         }
 
         h2{
-            font-size: 4.5em;
+            font-size: 3em;
             animation: none;
             opacity: 1;
             margin: 10px;
@@ -150,8 +149,7 @@
         }
     
         h3{
-            font-size: 1.2em;
-            text-shadow: 0px 0px 2px $shadowColor, 0px 0px 2px $shadowColor;
+            font-size: 1.1em;
             animation: none;
             opacity: 1;
         }   

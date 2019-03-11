@@ -17,7 +17,8 @@ class Register extends Component{
             zip:'',
             username: '',
             email:'',
-            password:''
+            password:'',
+            err: false
         }
     }
 
@@ -30,7 +31,8 @@ class Register extends Component{
         this.setState({[e.target.name]:e.target.value})
     }
 
-    registerUser=()=>{
+    registerUser=(e)=>{
+        e.preventDefault()
         const {username, password, email, firstname, lastname, address, city, state, zip} =  this.state
         axios.post('/api/register', {
             username, 
@@ -47,6 +49,7 @@ class Register extends Component{
             this.props.history.push('/')
         }).catch((err)=>{
             console.log(err)
+            this.setState({err:true});
         })
     }
 
@@ -58,18 +61,19 @@ class Register extends Component{
             <div className='login-page-container'>
                 <div className='login-container fadeInDownBig animated'>
                 {this.state.toggleForm ? 
-                    <div className='inputs'>
+                    <form className='inputs' onSubmit={this.registerUser}>
                         <p>Username:</p>
                         <input type='text' name='username' value={username} required onChange={this.updateInput}/>
                         <p>Email:</p>
                         <input type='email' name='email' value={email} required onChange={this.updateInput}/>
                         <p>Password:</p>
                         <input type='password' name='password' value={password} required onChange={this.updateInput}/>
+                        {this.state.err ? <p style={{color: 'red', textAlign: 'center'}}>Failed to Register.</p> : null}
                         <button onClick={()=>this.setState({toggleForm:!this.state.toggleForm})}>Back</button>
-                        <button onClick={()=>this.registerUser()}>Register</button>
-                    </div>
+                        <button>Register</button>
+                    </form>
                     :
-                    <div className='inputs'>
+                    <form className='inputs'>
                         <p>First Name:</p>
                         <input type='text' name='firstname' value={firstname} required onChange={this.updateInput}/>
                         <p>Last Name:</p>
@@ -81,9 +85,9 @@ class Register extends Component{
                         <p>State:</p>
                         <input type='text' name='state' value={state} required onChange={this.updateInput}/>
                         <p>Zip:</p>
-                        <input type='number' name='zip' value={zip} equired onChange={this.updateInput}/>
+                        <input type='number' name='zip' value={zip} required onChange={this.updateInput}/>
                         <button onClick={()=>this.setState({toggleForm:!this.state.toggleForm})}>Next</button>
-                    </div>
+                    </form>
                 }
                 </div>
             </div>

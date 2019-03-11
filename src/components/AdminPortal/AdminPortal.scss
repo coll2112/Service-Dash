@@ -47,6 +47,7 @@
 }
 
 .employeeForm{
+    width: 40vw;
     div{
         text-align: center;
         font-size: 1.1em;
@@ -65,9 +66,9 @@
         font-size: 1em;
         color: #505050;
         text-align: center;
-        margin-top: -10px;
+        // margin-top: -10px;
         margin-bottom: 10px;
-        // transition: margin .3s linear;
+        width: 100%;
 
         &:nth-child(1){
            margin-right: 10px; 
@@ -76,7 +77,6 @@
         &:focus{
             outline: none;
             border-bottom: 2px solid #242424;
-            // margin-top: 0px;
         }
     }
 
@@ -98,7 +98,7 @@
 }
 
 .listContainer{
-    width: 100%;
+    width: 40vw;
     max-height: 50vh;
     min-height: 50vh;
     overflow: scroll;
@@ -149,7 +149,7 @@
         padding-top: 20px;
     
         button{
-            width: 90vw;
+            width: 80vw;
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
@@ -157,13 +157,22 @@
     }
 
     .listContainer{
+        width: 80vw;
+
         button{
-            width: 40%;
+            width: 70%;
             padding: 20px 0;
         }
     }
 
+    .employeeContainer{
+        flex-direction: column;
+    }
+
     .employeeForm{
+        width: 80vw;
+        margin: 50px 0;
+
         input{
             margin-top: 10px;
             margin-bottom: 20px;

@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: space-around;
     border: 2px solid $accentColor;
-    border-radius: .7em;
+    border-radius: .3em;
     width: 35vw;
     padding: 20px 10px;
     background: $primaryColor;
@@ -77,12 +77,11 @@
         background: $accentColor;
         color: $primaryColor;
         font-size: 1em;
-        border-radius: .5em;
+        border-radius: .2em;
         outline: none;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: justify-content .3s linear;
         
         &:hover{
             background: $accentHover;
