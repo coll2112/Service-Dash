@@ -18,8 +18,8 @@ class Landing extends Component{
         return(
             <div className='container'>
                     <div className='showcase'>
-                        <h2>ServiceSprint</h2>
-                        <h3>Helping You Find Better Solutions</h3>
+                        <h2>ServiceDash</h2>
+                        <h3>Helping You Dash to Better Deals</h3>
                         {
                         this.props.user.username ? 
                         null : 

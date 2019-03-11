@@ -43,11 +43,12 @@ class Navbar extends Component{
 
     render(){
         return(
+            // standard nav for computers and laptops
             <div className='navbar-container'>
                 <div className='navbar'>
                     <div className='logo'>
                         <FontAwesomeIcon icon='people-carry' size='2x'/>
-                        <h1>ServiceSprint</h1>
+                        <h1>ServiceDash</h1>
                     </div>
                     <div className='links'>
                         <Link to='/'><li>Home</li></Link>
@@ -63,6 +64,7 @@ class Navbar extends Component{
                             
                         }
                     </div>
+                    {/* Below is the mobile nav for tablets and phones */}
                     <div className='mobileNav'>
                         <FontAwesomeIcon icon='bars' size='2x' onClick={()=>this.toggleMobileNav()}/>
                     </div>

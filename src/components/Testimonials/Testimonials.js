@@ -7,11 +7,11 @@ class Testimonials extends Component{
     constructor(){
         super();
         this.state={
-            reviews: [{name:'Ann', review:'PushCo pushes to be the best! Outstanding customer service and satisfaction.' , home:'Dallas, TX'},
-                      {name:'Billy', review:'Great service. Quick and easy. Definitely recommend them to anyone. I love PushCo!', home:'San Francisco, CA'},
+            reviews: [{name:'Ann', review:'ServiceDash pushes to be the best! Outstanding customer service and satisfaction.' , home:'Dallas, TX'},
+                      {name:'Billy', review:'Great service. Quick and easy. Definitely recommend them to anyone. I love ServiceDash!', home:'San Francisco, CA'},
                       {name:'Craig', review:'Super speedy! Quick responses and all around polite. Cannot wait to work with them again', home:'Denver, CO'},
                       {name:'Harry', review:'They fix everything. Literally everything. Call these people now!', home:'Denton, TX'},
-                      {name:'James', review:'We used to blast off all the time, but PushCo finally caught that annoying little Pikachu.', home:'Kanto Region'}]
+                      {name:'James', review:'We used to blast off all the time, but ServiceDash finally caught that annoying little Pikachu.', home:'Kanto Region'}]
         }
     }
 
