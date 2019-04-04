@@ -31,15 +31,6 @@ class Stripe extends Component{
         toast.error('Error with Payment')
     }
 
-    // payBill=(id)=>{
-    //     axios.put(`/api/pay/status/${id}`, {is_paid:'paid'}).then(()=>{
-    //         this.successPayment()
-    //     }).catch(err=>{
-    //         console.log(err)
-    //         this.declinePayment()
-    //     })
-    // }
-
     render(){
         return(
             <StripeCheckout
