@@ -2,8 +2,6 @@
 
 ServiceDash allows users to sign up, submit service request applications, and admins are able to assign those applicaitons to companies that meet the needs of the users request.
 
-http://www.service-dash.com/
-
 ### Below is the landing page.
 ![Landing Page](landing.png)
 
